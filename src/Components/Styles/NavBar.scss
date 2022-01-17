@@ -1,0 +1,47 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+
+  .app-name{
+    font-size: $fs-400;
+    font-weight: $fw-medium;
+  }
+
+  .menu-btn{
+    display: flex;
+    flex-direction: column;
+    width: 40px;
+    height: 15px;
+    cursor: pointer;
+
+    span{
+      display: inline-block;
+      width: 100%;
+      height: 2.5px;
+      background: $text-primary;
+
+      &:last-child{
+        margin-top: auto;
+      }
+    }
+  }
+
+  @include media-md() {
+    padding: 60px;
+
+    .app-name{
+      font-size: $fs-500;
+    }
+  }
+
+  @include media-lg() {
+    .app-name{
+      font-size: $fs-600;
+    }
+  }
+}
