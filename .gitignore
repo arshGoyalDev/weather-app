@@ -24,3 +24,6 @@ yarn-error.log*
 
 # design
 /src/Assets/Design/
+
+#test
+/src/Components/Test.js

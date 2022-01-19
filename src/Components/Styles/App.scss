@@ -4,3 +4,9 @@
   min-height: 100vh;
   background: $eerie-black;
 }
+
+.main{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
