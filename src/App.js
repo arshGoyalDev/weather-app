@@ -36,15 +36,15 @@ function App() {
     }
   }
 
-  useEffect(() => {
-    console.log(currentData);
-  }, [currentData])
+  // useEffect(() => {
+  //   console.log(currentData);
+  // }, [currentData])
 
   return (
     <main className="App">
       <section className='main'>
         <NavBar />
-        <Details getLocation={getLocation} fetchCurrentData={fetchCurrentData} />
+        <Details getLocation={getLocation} fetchCurrentData={fetchCurrentData} currentData={currentData} />
       </section>
     </main>
   );

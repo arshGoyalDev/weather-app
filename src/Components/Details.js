@@ -1,12 +1,21 @@
 import React, { useState } from "react";
 import "./Styles/Details.scss";
 
-const Details = ({ getLocation, fetchCurrentData }) => {
+const Details = ({ getLocation, fetchCurrentData, currentData }) => {
+  console.log(currentData);
+
   const [visibility, setVisibility] = useState(false);
   const [location, updateLocation] = useState("");
+  let parts = (
+    currentData.location !== undefined
+      ? currentData.location.localtime.substring(0, 10)
+      : ""
+  ).split("-");
+  let currentDate = new Date();
+  let date = new Date(parts[0], parts[1] - 1, parts[2]);
 
   let clickHandler = (e) => {
-    if (e.target.classList.contains('track-btn')) {
+    if (e.target.classList.contains("track-btn")) {
       getLocation();
     }
     visibility ? setVisibility(false) : setVisibility(true);
@@ -19,18 +28,44 @@ const Details = ({ getLocation, fetchCurrentData }) => {
   let keyDownHandler = (e) => {
     if (e.keyCode == 13) {
       fetchCurrentData("", location);
+      setVisibility(false);
     }
-    setVisibility(false);
   };
 
   return (
     <div className="details">
       <div className="details--time">
-        <span>18.35 AM</span> - <span>Wednesday, 19 Jan 2022</span>
+        {currentData.location !== undefined ? (
+          <span>
+            <span>{currentData.location.localtime.substring(11, 16)}</span>{" "}
+            <span>-</span>{" "}
+            <span>
+              {date.toLocaleDateString("en-US", { weekday: "long" })},{" "}
+              {date.getDate()}{" "}
+              {date.toLocaleString("default", { month: "short" })}{" "}
+              {date.getFullYear()}
+            </span>
+          </span>
+        ) : (
+          <span>
+            <span>{currentDate.toTimeString().substring(0, 5)}</span>{" "}
+            <span>-</span>{" "}
+            <span>
+              {currentDate.toLocaleDateString("en-US", { weekday: "long" })},{" "}
+              {currentDate.getDate()}{" "}
+              {currentDate.toLocaleString("default", { month: "short" })}{" "}
+              {currentDate.getFullYear()}
+            </span>
+          </span>
+        )}
       </div>
 
       <div className="details--location">
-        <span className="location">Location</span>
+        <span className="location">
+          {currentData.location !== undefined
+            ? `${currentData.location.name}, ${currentData.location.country}`
+            : "Location"}
+        </span>
         <button className="change-btn" onClick={clickHandler}>
           Change
         </button>
