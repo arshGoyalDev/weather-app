@@ -10,6 +10,7 @@
   transition: 0.3s;
 
   &-statement{
+    letter-spacing: 1px;
     font-weight: $fw-regular;
     font-size: $fs-600;
     margin-bottom: 20px;
@@ -29,9 +30,9 @@
       width: 50%;
       height: 100%;
       background: $text-primary;
-      transition: 0.7s ease-in-out;
+      transition: 1s ease-in-out;
       border-radius: 100px;
-      animation: progress 0.7s;
+      animation: progress 1s;
     }
 
     &.completed .progress-bar--completed {

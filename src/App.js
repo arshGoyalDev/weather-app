@@ -48,7 +48,7 @@ function App() {
           getLocation={getLocation}
           fetchCurrentData={fetchCurrentData}
           currentData={currentData}
-          loading={loading} 
+          loading={loading}
           setLoading={setLoading}
         />
       </section>

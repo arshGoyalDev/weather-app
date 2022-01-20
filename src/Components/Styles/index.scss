@@ -39,7 +39,9 @@ body {
 
 // focus
 
-
+*:focus{
+  outline: 2px solid $text-primary;
+}
 
 // visibility
 
@@ -49,3 +51,8 @@ body {
 }
 
 // selection
+
+::selection{
+  background: $onyx;
+  color: $eerie-black;
+}

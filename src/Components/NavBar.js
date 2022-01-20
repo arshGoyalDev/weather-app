@@ -10,10 +10,10 @@ const NavBar = () => {
   return (
     <nav>
       <h2 className='app-name'>Weather</h2>
-      <div className='menu-btn' onClick={clickHandler}>
+      <button className='menu-btn' onClick={clickHandler}>
         <span></span>
         <span></span>
-      </div>
+      </button>
     </nav>
   );
 }

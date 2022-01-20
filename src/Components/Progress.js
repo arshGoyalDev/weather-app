@@ -7,7 +7,7 @@ const Progress = ({ currentData }) => {
   if (currentData.location !== undefined) {
     setTimeout(() => {
       setHide(true);
-    }, 650);
+    }, 1000);
   }
 
   return (
