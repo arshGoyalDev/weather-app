@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import './Components/Styles/App.scss';
+import React, { useState, useEffect } from "react";
+import "./Components/Styles/App.scss";
 
-import NavBar from './Components/NavBar';
-import Details from './Components/Details';
+import NavBar from "./Components/NavBar";
+import Details from "./Components/Details";
+import Progress from "./Components/Progress";
 
 function App() {
-
   const [currentData, updatedCurrentData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   let getLocation = () => {
     if (navigator.geolocation) {
@@ -24,6 +25,7 @@ function App() {
         .then((res) => res.json())
         .then((data) => {
           updatedCurrentData(data);
+          setLoading(false);
         });
     } else {
       fetch(
@@ -32,19 +34,23 @@ function App() {
         .then((res) => res.json())
         .then((data) => {
           updatedCurrentData(data);
+          setLoading(false);
         });
     }
-  }
-
-  // useEffect(() => {
-  //   console.log(currentData);
-  // }, [currentData])
+  };
 
   return (
     <main className="App">
-      <section className='main'>
+      <section className="main">
         <NavBar />
-        <Details getLocation={getLocation} fetchCurrentData={fetchCurrentData} currentData={currentData} />
+        <Progress currentData={currentData} />
+        <Details
+          getLocation={getLocation}
+          fetchCurrentData={fetchCurrentData}
+          currentData={currentData}
+          loading={loading} 
+          setLoading={setLoading}
+        />
       </section>
     </main>
   );

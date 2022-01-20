@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import "./Styles/Details.scss";
 
-const Details = ({ getLocation, fetchCurrentData, currentData }) => {
-  console.log(currentData);
-
+const Details = ({ getLocation, fetchCurrentData, currentData, loading, setLoading }) => {
   const [visibility, setVisibility] = useState(false);
   const [location, updateLocation] = useState("");
   let parts = (
@@ -18,6 +16,7 @@ const Details = ({ getLocation, fetchCurrentData, currentData }) => {
     if (e.target.classList.contains("track-btn")) {
       getLocation();
     }
+    setLoading(true);
     visibility ? setVisibility(false) : setVisibility(true);
   };
 
@@ -36,27 +35,27 @@ const Details = ({ getLocation, fetchCurrentData, currentData }) => {
     <div className="details">
       <div className="details--time">
         {currentData.location !== undefined ? (
-          <span>
+          <div>
             <span>{currentData.location.localtime.substring(11, 16)}</span>{" "}
-            <span>-</span>{" "}
+            <span className="dash"></span>{" "}
             <span>
               {date.toLocaleDateString("en-US", { weekday: "long" })},{" "}
               {date.getDate()}{" "}
               {date.toLocaleString("default", { month: "short" })}{" "}
               {date.getFullYear()}
             </span>
-          </span>
+          </div>
         ) : (
-          <span>
+          <div>
             <span>{currentDate.toTimeString().substring(0, 5)}</span>{" "}
-            <span>-</span>{" "}
+            <span className="dash"></span>{" "}
             <span>
               {currentDate.toLocaleDateString("en-US", { weekday: "long" })},{" "}
               {currentDate.getDate()}{" "}
               {currentDate.toLocaleString("default", { month: "short" })}{" "}
               {currentDate.getFullYear()}
             </span>
-          </span>
+          </div>
         )}
       </div>
 
@@ -67,7 +66,9 @@ const Details = ({ getLocation, fetchCurrentData, currentData }) => {
             : "Location"}
         </span>
         <button className="change-btn" onClick={clickHandler}>
-          Change
+          {loading ? (
+            <div className="loader"></div>
+          ) : "Change"}
         </button>
         <div className={`details--location-change ${visibility ? "show" : ""}`}>
           <button className="track-btn" onClick={clickHandler}>
