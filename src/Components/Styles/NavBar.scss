@@ -10,6 +10,7 @@ nav{
   .app-name{
     font-size: $fs-400;
     font-weight: $fw-medium;
+    transform-origin: left;
   }
 
   .menu-btn{
@@ -20,6 +21,7 @@ nav{
     background: transparent;
     border: 0;
     padding: 3px 7px;
+    transform-origin: right;
     cursor: pointer;
 
     span{

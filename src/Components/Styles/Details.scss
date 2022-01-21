@@ -13,6 +13,7 @@
   &--time{
     font-weight: $fw-bold;
     font-size: $fs-200;
+    transform-origin: left;
 
     div{
       display: flex;
@@ -33,6 +34,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    transform-origin: right;
 
     .location{
       font-weight: $fw-bold;

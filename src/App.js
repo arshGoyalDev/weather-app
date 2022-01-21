@@ -42,7 +42,7 @@ function App() {
   return (
     <main className="App">
       <section className="main">
-        <NavBar />
+        <NavBar currentData={currentData} />
         <Progress currentData={currentData} />
         <Details
           getLocation={getLocation}

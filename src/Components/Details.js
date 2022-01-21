@@ -3,6 +3,7 @@ import "./Styles/Details.scss";
 
 const Details = ({ getLocation, fetchCurrentData, currentData, loading, setLoading }) => {
   const [visibility, setVisibility] = useState(false);
+  const [hide, setHide] = useState(false);
   const [location, updateLocation] = useState("");
   let parts = (
     currentData.location !== undefined
@@ -11,6 +12,12 @@ const Details = ({ getLocation, fetchCurrentData, currentData, loading, setLoadi
   ).split("-");
   let currentDate = new Date();
   let date = new Date(parts[0], parts[1] - 1, parts[2]);
+
+  if (currentData.location !== undefined) {
+    setTimeout(() => {
+      setHide(true);
+    }, 1000);
+  }
 
   let clickHandler = (e) => {
     if (e.target.classList.contains("track-btn")) {
@@ -33,7 +40,7 @@ const Details = ({ getLocation, fetchCurrentData, currentData, loading, setLoadi
 
   return (
     <div className="details">
-      <div className="details--time">
+      <div className={`details--time ${hide ? "animate" : ""}`}>
         {currentData.location !== undefined ? (
           <div>
             <span>{currentData.location.localtime.substring(11, 16)}</span>{" "}
@@ -59,7 +66,7 @@ const Details = ({ getLocation, fetchCurrentData, currentData, loading, setLoadi
         )}
       </div>
 
-      <div className="details--location">
+      <div className={`details--location ${hide ? "animate" : ""}`}>
         <span className="location">
           {currentData.location !== undefined
             ? `${currentData.location.name}, ${currentData.location.country}`

@@ -56,3 +56,26 @@ body {
   background: $onyx;
   color: $eerie-black;
 }
+
+// -------------------- // 
+// animation
+// -------------------- // 
+
+
+.animate{
+  animation: hide-show 2s ease-in-out;
+}
+
+@keyframes hide-show {
+  0%{
+    transform: scaleX(1);
+  }
+
+  50%{
+    transform: scaleX(0);
+  }
+
+  100%{
+    transform: scaleX(1);
+  }
+}
