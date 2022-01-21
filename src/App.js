@@ -4,6 +4,7 @@ import "./Components/Styles/App.scss";
 import NavBar from "./Components/NavBar";
 import Details from "./Components/Details";
 import Progress from "./Components/Progress";
+import Weather from "./Components/Weather";
 
 function App() {
   const [currentData, updatedCurrentData] = useState([]);
@@ -50,7 +51,11 @@ function App() {
     <main className="App">
       <section className="main">
         <NavBar hide={hide} />
-        <Progress currentData={currentData} hide={hide} />
+        {hide ? (
+          <Weather hide={hide} currentData={currentData.current} />
+        ) : (
+          <Progress currentData={currentData} hide={hide} />
+        )}
         <Details
           getLocation={getLocation}
           fetchCurrentData={fetchCurrentData}

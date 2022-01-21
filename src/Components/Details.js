@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import "./Styles/Details.scss";
 
-const Details = ({ getLocation, fetchCurrentData, currentData, loading, setLoading, hide }) => {
+const Details = ({
+  getLocation,
+  fetchCurrentData,
+  currentData,
+  loading,
+  setLoading,
+  hide,
+}) => {
   const [visibility, setVisibility] = useState(false);
   const [location, updateLocation] = useState("");
   let parts = (
@@ -66,9 +73,7 @@ const Details = ({ getLocation, fetchCurrentData, currentData, loading, setLoadi
             : "Location"}
         </span>
         <button className="change-btn" onClick={clickHandler}>
-          {loading ? (
-            <div className="loader"></div>
-          ) : "Change"}
+          {loading ? <div className="loader"></div> : "Change"}
         </button>
         <div className={`details--location-change ${visibility ? "show" : ""}`}>
           <button className="track-btn" onClick={clickHandler}>

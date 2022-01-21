@@ -37,7 +37,7 @@ nav{
   }
 
   @include media-md() {
-    padding: 60px;
+    padding: 40px 60px;
 
     .app-name{
       font-size: $fs-500;

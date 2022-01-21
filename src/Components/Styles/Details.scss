@@ -129,7 +129,7 @@
   }
 
   @include media-md() {
-    padding: 60px;
+    padding: 40px 60px;
 
     &--time{
       font-size: $fs-300;

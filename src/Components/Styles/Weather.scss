@@ -1,0 +1,65 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.weather{
+  display: flex;
+  flex-direction: column;
+  padding: 30px 0;
+  margin: auto 30px 0;
+  gap: 15px;
+  opacity: 0;
+  border-bottom: 2px solid $text-tertiary;
+  transition: 0.5s;
+
+  &--digit{
+    font-size: 3.5rem;
+    font-weight: $fw-bold;
+    transition: 0.3s;
+
+    sup{
+      font-weight: $fw-medium;
+    }
+  }
+
+  &--quotes{
+    margin-left: 5px;
+    transition: 0.3s;
+
+    p{
+      font-size: $fs-400;
+      font-weight: $fw-bold;
+      color: $text-secondary;
+    }
+  }
+
+  &.appear{
+    opacity: 1;
+  }
+
+  @include media-md() {
+    padding: 40px 30px;
+
+    &--digit{
+      font-size: 8rem;
+    }
+  }
+
+  @include media-lg() {
+    align-items: flex-end;
+    flex-direction: row;
+    gap: 20px;
+
+    &--digit{
+      font-size: 12rem;
+    }
+
+    &--quotes{
+      margin-bottom: 15px;
+      
+      p{
+        font-size: $fs-600;
+      }
+    }
+  }
+}
+
