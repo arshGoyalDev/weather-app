@@ -1,15 +1,7 @@
 import React, { useState } from "react";
 import "./Styles/Progress.scss";
 
-const Progress = ({ currentData }) => {
-  const [hide, setHide] = useState(false);
-
-  if (currentData.location !== undefined) {
-    setTimeout(() => {
-      setHide(true);
-    }, 1000);
-  }
-
+const Progress = ({ currentData, hide }) => {
   return (
     <div className={`progress ${hide ? "visibility--hidden" : ""}`}>
       <h1 className="progress-statement">

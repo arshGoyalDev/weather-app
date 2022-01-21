@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import './Styles/NavBar.scss';
 
-const NavBar = ({ currentData }) => {
-  const [hide, setHide] = useState(false);
+const NavBar = ({ hide }) => {
+  // const [hide, setHide] = useState(false);
 
-  if (currentData.location !== undefined) {
-    setTimeout(() => {
-      setHide(true);
-    }, 1000);
-  }
+  // if (currentData.location !== undefined) {
+  //   setTimeout(() => {
+  //     setHide(true);
+  //   }, 1000);
+  // }
     
   let clickHandler = () => {
     console.log("btn clicked");

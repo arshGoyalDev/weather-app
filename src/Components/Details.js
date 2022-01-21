@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import "./Styles/Details.scss";
 
-const Details = ({ getLocation, fetchCurrentData, currentData, loading, setLoading }) => {
+const Details = ({ getLocation, fetchCurrentData, currentData, loading, setLoading, hide }) => {
   const [visibility, setVisibility] = useState(false);
-  const [hide, setHide] = useState(false);
   const [location, updateLocation] = useState("");
   let parts = (
     currentData.location !== undefined
@@ -12,12 +11,6 @@ const Details = ({ getLocation, fetchCurrentData, currentData, loading, setLoadi
   ).split("-");
   let currentDate = new Date();
   let date = new Date(parts[0], parts[1] - 1, parts[2]);
-
-  if (currentData.location !== undefined) {
-    setTimeout(() => {
-      setHide(true);
-    }, 1000);
-  }
 
   let clickHandler = (e) => {
     if (e.target.classList.contains("track-btn")) {

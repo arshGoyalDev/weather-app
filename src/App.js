@@ -8,6 +8,13 @@ import Progress from "./Components/Progress";
 function App() {
   const [currentData, updatedCurrentData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [hide, setHide] = useState(false);
+
+  if (currentData.location !== undefined) {
+    setTimeout(() => {
+      setHide(true);
+    }, 1000);
+  }
 
   let getLocation = () => {
     if (navigator.geolocation) {
@@ -42,14 +49,15 @@ function App() {
   return (
     <main className="App">
       <section className="main">
-        <NavBar currentData={currentData} />
-        <Progress currentData={currentData} />
+        <NavBar hide={hide} />
+        <Progress currentData={currentData} hide={hide} />
         <Details
           getLocation={getLocation}
           fetchCurrentData={fetchCurrentData}
           currentData={currentData}
           loading={loading}
           setLoading={setLoading}
+          hide={hide}
         />
       </section>
     </main>
