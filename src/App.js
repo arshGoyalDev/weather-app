@@ -10,10 +10,17 @@ function App() {
   const [currentData, updatedCurrentData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [hide, setHide] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   if (currentData.location !== undefined) {
     setTimeout(() => {
       setHide(true);
+    }, 1000);
+  }
+
+  if (hide) {
+    setTimeout(() => {
+      setVisible(true);
     }, 1000);
   }
 
@@ -52,7 +59,7 @@ function App() {
       <section className="main">
         <NavBar hide={hide} />
         {hide ? (
-          <Weather hide={hide} currentData={currentData.current} />
+          <Weather visible={visible} currentData={currentData.current} />
         ) : (
           <Progress currentData={currentData} hide={hide} />
         )}
@@ -63,6 +70,7 @@ function App() {
           loading={loading}
           setLoading={setLoading}
           hide={hide}
+          visible={visible}
         />
       </section>
     </main>

@@ -8,7 +8,11 @@ const Details = ({
   loading,
   setLoading,
   hide,
+  visible
 }) => {
+
+  console.log(visible);
+
   const [visibility, setVisibility] = useState(false);
   const [location, updateLocation] = useState("");
   let parts = (
@@ -41,7 +45,7 @@ const Details = ({
   return (
     <div className="details">
       <div className={`details--time ${hide ? "animate" : ""}`}>
-        {currentData.location !== undefined ? (
+        {visible ? (
           <div>
             <span>{currentData.location.localtime.substring(11, 16)}</span>{" "}
             <span className="dash"></span>{" "}
@@ -68,7 +72,7 @@ const Details = ({
 
       <div className={`details--location ${hide ? "animate" : ""}`}>
         <span className="location">
-          {currentData.location !== undefined
+          {visible
             ? `${currentData.location.name}, ${currentData.location.country}`
             : "Location"}
         </span>

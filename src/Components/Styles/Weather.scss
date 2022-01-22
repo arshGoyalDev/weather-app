@@ -15,6 +15,13 @@
     font-size: 3.5rem;
     font-weight: $fw-bold;
     transition: 0.3s;
+    transform-origin: left;
+    
+    &.appear{  
+      display: flex;
+      overflow: hidden;
+      animation: come-in 0.5s;
+    }
 
     sup {
       font-weight: $fw-medium;
@@ -27,6 +34,14 @@
 
     p {
       font-size: $fs-400;
+      opacity: 0;
+      transform: translateX(-30px);  
+
+      &.appear{
+        animation: come-after 0.5s;
+        transform: translateX(0);
+        opacity: 1;
+      }
 
       &:first-child{
         font-weight: $fw-bold;
@@ -34,8 +49,10 @@
       }
 
       &:last-child{
+        animation-duration: 2s;
         color: $text-secondary;
         font-weight: $fw-regular;
+        
       }
     }
   }
@@ -72,5 +89,28 @@
         }
       }
     }
+  }
+}
+
+
+@keyframes come-in {
+  0%{
+    width: 0;
+  }
+
+  100%{
+    width: 270.436px;
+  }
+}
+
+@keyframes come-after {
+  0%{
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  100%{
+    opacity: 1;
+    transform: translateX(0);
   }
 }

@@ -1,26 +1,28 @@
 import React, { useState } from "react";
 import "./Styles/Weather.scss";
 
-const Weather = ({ hide, currentData }) => {
-  console.log(currentData);
+const Weather = ({ visible, currentData }) => {
+  let [quotesVisible, setQuotesVisible] = useState(false);
 
-  let [visible, setVisible] = useState(false);
-
-  if (hide) {
+  if (visible) {
     setTimeout(() => {
-      setVisible(true);
-    }, 1000);
+      setQuotesVisible(true);
+    }, 500);
   }
 
   return (
     <div className={`weather ${visible ? "appear" : ""}`}>
-      <div className="weather--digit">
+      <div className={`weather--digit ${visible ? "appear" : ""}`}>
         {currentData.temp_c} <sup>°</sup>
       </div>
 
       <div className="weather--quotes">
-        <p>{currentData.condition.text}</p>
-        <p>Feels like: {currentData.feelslike_c}</p>
+        <p className={quotesVisible ? "appear" : ""}>
+          {currentData.condition.text}
+        </p>
+        <p className={quotesVisible ? "appear" : ""}>
+          Feels like: {currentData.feelslike_c}
+        </p>
       </div>
     </div>
   );
