@@ -1,8 +1,7 @@
-@use 'variables' as *;
-@use 'mixins' as *;
+@use "variables" as *;
+@use "mixins" as *;
 
-
-.details{
+.details {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,17 +9,17 @@
   gap: 30px;
   // margin-block: auto 0;
 
-  &--time{
+  &--time {
     font-weight: $fw-bold;
     font-size: $fs-200;
     transform-origin: left;
 
-    div{
+    div {
       display: flex;
       align-items: center;
       gap: 10px;
 
-      .dash{
+      .dash {
         display: inline-block;
         width: 10px;
         height: 2px;
@@ -29,19 +28,19 @@
     }
   }
 
-  &--location{
+  &--location {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     transform-origin: right;
 
-    .location{
+    .location {
       font-weight: $fw-bold;
       font-size: $fs-200;
     }
 
-    .change-btn{
+    .change-btn {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -58,7 +57,7 @@
       transition: 0.3s;
       cursor: pointer;
 
-      .loader{
+      .loader {
         width: 15px;
         height: 15px;
         border-top: 2px solid $text-primary;
@@ -66,13 +65,13 @@
         animation: rotate 0.5s infinite linear;
       }
 
-      &:hover{
+      &:hover {
         color: darken($color: $text-primary, $amount: 30%);
         border-color: darken($color: $text-primary, $amount: 30%);
       }
     }
 
-    &-change{
+    &-change {
       position: absolute;
       z-index: 4;
       top: -60px;
@@ -87,12 +86,12 @@
       transform: scale(0);
       transition: 0.3s;
 
-      &.show{
+      &.show {
         top: -160px;
         transform: scale(1);
       }
 
-      .track-btn{
+      .track-btn {
         width: 100%;
         font-weight: $fw-bold;
         color: $text-primary;
@@ -103,11 +102,11 @@
         cursor: pointer;
       }
 
-      span{
+      span {
         font-size: $fs-400;
       }
 
-      .location-input{
+      .location-input {
         font-weight: $fw-medium;
         font-size: $fs-200;
         color: $text-primary;
@@ -117,11 +116,11 @@
         border-radius: 5px;
         outline: 0;
 
-        &:focus{
+        &:focus {
           border-color: $text-secondary;
         }
 
-        &::placeholder{
+        &::placeholder {
           color: $text-secondary;
         }
       }
@@ -131,18 +130,18 @@
   @include media-md() {
     padding: 40px 60px;
 
-    &--time{
+    &--time {
       font-size: $fs-300;
     }
 
-    &--location{
+    &--location {
       flex-direction: row;
 
-      .location{
+      .location {
         font-size: $fs-300;
       }
 
-      .change-btn{
+      .change-btn {
         width: 105px;
         height: 37px;
         font-size: $fs-300;
@@ -153,9 +152,8 @@
   }
 }
 
-
 @keyframes rotate {
-  100%{
+  100% {
     transform: rotate(360deg);
   }
 }

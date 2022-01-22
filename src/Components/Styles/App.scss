@@ -1,11 +1,11 @@
-@use 'variables' as *;
+@use "variables" as *;
 
-.App{
+.App {
   min-height: 100vh;
   background: $eerie-black;
 }
 
-.main{
+.main {
   min-height: 100vh;
   display: flex;
   flex-direction: column;

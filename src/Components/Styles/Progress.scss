@@ -1,7 +1,7 @@
-@use 'variables' as *;
-@use 'mixins' as *;
+@use "variables" as *;
+@use "mixins" as *;
 
-.progress{
+.progress {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,21 +9,21 @@
   margin-block: auto;
   transition: 0.3s;
 
-  &-statement{
+  &-statement {
     letter-spacing: 1px;
     font-weight: $fw-regular;
     font-size: $fs-600;
     margin-bottom: 20px;
   }
 
-  &-bar{
+  &-bar {
     position: relative;
     width: 90%;
     height: 5px;
     background: $text-secondary;
     border-radius: 100px;
 
-    &--completed{
+    &--completed {
       position: absolute;
       top: 0;
       left: 0;
@@ -41,24 +41,23 @@
   }
 
   @include media-md() {
-
-    &-statement{
+    &-statement {
       font-size: $fs-700;
       margin-bottom: 30px;
     }
 
-    &-bar{
+    &-bar {
       width: 500px;
     }
   }
 }
 
 @keyframes progress {
-  0%{
+  0% {
     width: 0;
   }
 
-  100%{
+  100% {
     width: 50%;
   }
 }
