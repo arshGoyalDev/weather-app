@@ -66,34 +66,52 @@ function App() {
 
     if (conditionText.includes("Sunny")) {
       setCondition("sunny");
-    } else if (conditionText.includes("Clear")) {
+    }
+    if (conditionText.includes("Clear")) {
       setCondition("clear");
-    } else if (conditionText.includes("cloudy") || conditionText.includes("Cloudy")) {
+    }
+    if (conditionText.includes("cloudy") || conditionText.includes("Cloudy")) {
       setCondition("cloudy");
-    } else if (conditionText.includes("Overcast")) {
+    }
+    if (conditionText.includes("Overcast")) {
       setCondition("overcast");
-    } else if (conditionText.includes("Mist")) {
+    }
+    if (conditionText.includes("Mist")) {
       setCondition("mist");
-    } else if (conditionText.includes("fog") || conditionText.includes("Fog")) {
+    }
+    if (conditionText.includes("fog") || conditionText.includes("Fog")) {
       setCondition("fog");
-    } else if (conditionText.includes("rain")) {
+    }
+    if (conditionText.includes("rain")) {
       setCondition("rain");
-    } else if (conditionText.includes("drizzle")) {
+    }
+    if (conditionText.includes("drizzle")) {
       setCondition("drizzle");
-    } else if (conditionText.includes("snow") || conditionText.includes("Ice") || conditionText.includes("ice")) {
+    }
+    if (
+      conditionText.includes("snow") ||
+      conditionText.includes("Ice") ||
+      conditionText.includes("ice")
+    ) {
       setCondition("snow");
-    } else if (conditionText.includes("thunder") || conditionText.includes("Thundery")) {
+    }
+    if (
+      conditionText.includes("thunder") ||
+      conditionText.includes("Thundery")
+    ) {
       setCondition("thunder");
-    } else if (conditionText.includes("sleet")) {
+    }
+    if (conditionText.includes("sleet")) {
       setCondition("sleet");
-    } else if (conditionText.includes("Blizzard")) {
+    }
+    if (conditionText.includes("Blizzard")) {
       setCondition("blizzard");
-    } 
+    }
   }, [currentData, conditionText, condition]);
 
   return (
     <main className="App">
-      <section className={`main ${condition}`}>
+      <section className={`main ${visible ? condition : ""}`}>
         <NavBar hide={hide} />
         {hide ? (
           <Weather visible={visible} currentData={currentData.current} />
@@ -116,4 +134,3 @@ function App() {
 }
 
 export default App;
-
