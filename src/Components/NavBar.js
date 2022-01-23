@@ -8,7 +8,7 @@ const NavBar = ({ hide }) => {
 
   return (
     <nav>
-      <h2 className={`app-name ${hide ? "animate" : ""}`}>Weather</h2>
+      <h2 className={`app-name ${hide ? "animate" : ""}`}>weather.today</h2>
       <button
         className={`menu-btn ${hide ? "animate" : ""}`}
         onClick={clickHandler}

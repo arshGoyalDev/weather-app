@@ -8,11 +8,8 @@ const Details = ({
   loading,
   setLoading,
   hide,
-  visible
+  visible,
 }) => {
-
-  console.log(visible);
-
   const [visibility, setVisibility] = useState(false);
   const [location, updateLocation] = useState("");
   let parts = (

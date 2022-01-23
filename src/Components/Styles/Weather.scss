@@ -16,8 +16,8 @@
     font-weight: $fw-bold;
     transition: 0.3s;
     transform-origin: left;
-    
-    &.appear{  
+
+    &.appear {
       display: flex;
       overflow: hidden;
       animation: come-in 0.5s;
@@ -29,30 +29,29 @@
   }
 
   &--quotes {
-    margin-left: 5px;
+    margin-left: 3px;
     transition: 0.3s;
 
     p {
       font-size: $fs-400;
       opacity: 0;
-      transform: translateX(-30px);  
+      transform: translateX(-30px);
 
-      &.appear{
+      &.appear {
         animation: come-after 0.5s;
         transform: translateX(0);
         opacity: 1;
       }
 
-      &:first-child{
+      &:first-child {
         font-weight: $fw-bold;
         margin-bottom: 5px;
       }
 
-      &:last-child{
+      &:last-child {
         animation-duration: 2s;
         color: $text-secondary;
         font-weight: $fw-regular;
-        
       }
     }
   }
@@ -62,54 +61,53 @@
   }
 
   @include media-md() {
+    align-items: flex-end;
+    flex-direction: row;
+    gap: 40px;
     padding: 40px 30px;
 
     &--digit {
       font-size: 8rem;
     }
-  }
-
-  @include media-lg() {
-    align-items: flex-end;
-    flex-direction: row;
-    gap: 20px;
-
-    &--digit {
-      font-size: 12rem;
-    }
 
     &--quotes {
+      margin-left: 0;
       margin-bottom: 15px;
 
       p {
         font-size: $fs-600;
 
-        &:first-child{
+        &:first-child {
           margin-bottom: 10px;
         }
       }
     }
   }
+
+  @include media-lg() {
+    &--digit {
+      font-size: 12rem;
+    }
+  }
 }
 
-
 @keyframes come-in {
-  0%{
+  0% {
     width: 0;
   }
 
-  100%{
+  100% {
     width: 270.436px;
   }
 }
 
 @keyframes come-after {
-  0%{
+  0% {
     opacity: 0;
     transform: translateX(-30px);
   }
 
-  100%{
+  100% {
     opacity: 1;
     transform: translateX(0);
   }
