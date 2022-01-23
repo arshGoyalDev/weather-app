@@ -12,6 +12,8 @@ const Details = ({
 }) => {
   const [visibility, setVisibility] = useState(false);
   const [location, updateLocation] = useState("");
+
+  // get current date and time
   let parts = (
     currentData.location !== undefined
       ? currentData.location.localtime.substring(0, 10)
@@ -20,6 +22,7 @@ const Details = ({
   let currentDate = new Date();
   let date = new Date(parts[0], parts[1] - 1, parts[2]);
 
+  // handler for clicks on track btn
   let clickHandler = (e) => {
     if (e.target.classList.contains("track-btn")) {
       getLocation();
@@ -28,10 +31,12 @@ const Details = ({
     visibility ? setVisibility(false) : setVisibility(true);
   };
 
+  // update the location when the value changes
   let changeHandler = (e) => {
     updateLocation(e.target.value);
   };
 
+  // press enter to fetch current data
   let keyDownHandler = (e) => {
     if (e.keyCode == 13) {
       fetchCurrentData("", location);

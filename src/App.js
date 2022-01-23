@@ -15,12 +15,14 @@ function App() {
   const [conditionText, setConditionText] = useState("");
   const [condition, setCondition] = useState("");
 
+  // hide = true if location is not undefined
   if (currentData.location !== undefined) {
     setTimeout(() => {
       setHide(true);
     }, 1000);
   }
 
+  // visible = true after 1s when hide == true
   if (hide) {
     setTimeout(() => {
       setVisible(true);
@@ -38,7 +40,7 @@ function App() {
 
   // helper function to fetch current data
   let fetchCurrentData = (position, location) => {
-    if (location == undefined) {
+    if (location === undefined) {
       fetch(
         `https://api.weatherapi.com/v1/current.json?key=74b6058dd8f54ec484c41910220501&q=${position.coords.latitude},${position.coords.longitude}`
       )
@@ -59,6 +61,7 @@ function App() {
     }
   };
 
+  // set condition text based on current data
   useEffect(() => {
     if (currentData.current !== undefined) {
       setConditionText(currentData.current.condition.text);

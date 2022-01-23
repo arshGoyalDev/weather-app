@@ -3,7 +3,8 @@ import "./Styles/Weather.scss";
 
 const Weather = ({ visible, currentData }) => {
   let [quotesVisible, setQuotesVisible] = useState(false);
-
+  
+  // quotesVisible = true after 0.5s when visible == true
   if (visible) {
     setTimeout(() => {
       setQuotesVisible(true);

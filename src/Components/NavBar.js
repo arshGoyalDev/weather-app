@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Styles/NavBar.scss";
 
 const NavBar = ({ hide }) => {
+  // navigation bar click handler
   let clickHandler = () => {
     console.log("btn clicked");
   };
