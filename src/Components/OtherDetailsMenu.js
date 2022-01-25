@@ -1,7 +1,10 @@
 import React from 'react';
 import './Styles/OtherDetailsMenu.scss';
 
-const OtherDetailsMenu = () => {
+const OtherDetailsMenu = ({currentData, forecastData}) => {
+
+  console.log(forecastData);
+
   return (
     <div className='other-details-menu'>
       

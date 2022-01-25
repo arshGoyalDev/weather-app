@@ -8,12 +8,14 @@ import Weather from "./Components/Weather";
 import OtherDetailsMenu from "./Components/OtherDetailsMenu";
 
 function App() {
-  const [currentData, updatedCurrentData] = useState([]);
+  const [currentData, setCurrentData] = useState([]);
+  const [forecastData, setForecastData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [hide, setHide] = useState(false);
   const [visible, setVisible] = useState(false);
   const [conditionText, setConditionText] = useState("");
   const [condition, setCondition] = useState("");
+  const [unit, setUnit] = useState("metric");
 
   // hide = true if location is not undefined
   if (currentData.location !== undefined) {
@@ -38,28 +40,29 @@ function App() {
     }
   };
 
-  // helper function to fetch current data
-  let fetchCurrentData = (position, location) => {
-    if (location === undefined) {
-      fetch(
-        `https://api.weatherapi.com/v1/current.json?key=74b6058dd8f54ec484c41910220501&q=${position.coords.latitude},${position.coords.longitude}`
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          updatedCurrentData(data);
-          setLoading(false);
-        });
-    } else {
-      fetch(
-        `https://api.weatherapi.com/v1/current.json?key=74b6058dd8f54ec484c41910220501&q=${location}`
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          updatedCurrentData(data);
-          setLoading(false);
-        });
-    }
+  // fetch current weather data for the given location
+  let fetchCurrentData = async (position, location) => {
+    const response = await fetch(
+      location === undefined
+        ? `https://api.weatherapi.com/v1/current.json?key=74b6058dd8f54ec484c41910220501&q=${position.coords.latitude},${position.coords.longitude}`
+        : `https://api.weatherapi.com/v1/current.json?key=74b6058dd8f54ec484c41910220501&q=${location}`
+    );
+    const data = await response.json();
+    setCurrentData(data);
+    setLoading(false);
   };
+
+  useEffect(async () => {
+    if (currentData.current !== undefined) {
+      const response = await fetch(
+        unit === "metric"
+          ? `https://api.openweathermap.org/data/2.5/onecall?lat=${currentData.location.lat}&lon=${currentData.location.lon}&exclude=minutely,hourly&units=metric&APPID=0db0675efd35ddf44c1152891c5e1ce2`
+          : `https://api.openweathermap.org/data/2.5/onecall?lat=${currentData.location.lat}&lon=${currentData.location.lon}&exclude=minutely,hourly&units=imperial&APPID=0db0675efd35ddf44c1152891c5e1ce2`
+      );
+      const data = await response.json();
+      setForecastData(data.daily.slice(1, 8));
+    }
+  }, [currentData]);
 
   // set condition text based on current data
   useEffect(() => {
@@ -114,7 +117,9 @@ function App() {
 
   return (
     <main className="App">
-      <section className={`main ${visible ? condition : ""}`}>
+      <section
+        className={`main ${visible ? condition : ""} ${hide ? "active" : ""}`}
+      >
         <NavBar hide={hide} />
         {hide ? (
           <Weather visible={visible} currentData={currentData.current} />
@@ -131,7 +136,7 @@ function App() {
           visible={visible}
         />
       </section>
-      <OtherDetailsMenu />
+      {hide ? <OtherDetailsMenu currentData={currentData} forecastData={forecastData} /> : ""}
     </main>
   );
 }
