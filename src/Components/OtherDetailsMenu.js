@@ -14,7 +14,7 @@ const OtherDetailsMenu = ({
 }) => {
   console.log(currentData, forecastData, hourlyData);
 
-  let clickHandler = () => {
+  let closeOtherDetailsMenu = () => {
     setOtherDetailsMenu(false);
   }
 
@@ -30,7 +30,7 @@ const OtherDetailsMenu = ({
   return (
     <div className={`other-details-menu ${otherDetailsMenu ? "active" : ""} ${hide ? "appear" : ""}`}>
       <div className="other-details-menu--close">
-        <button className="close-btn" onClick={clickHandler}>
+        <button className="close-btn" onClick={closeOtherDetailsMenu}>
           <CloseIcon />
         </button>
       </div>
