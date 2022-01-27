@@ -7,9 +7,10 @@ import Progress from "./Components/Progress";
 import Weather from "./Components/Weather";
 import OtherDetailsMenu from "./Components/OtherDetailsMenu";
 
-function App() {
+let App = () => {
   const [currentData, setCurrentData] = useState([]);
   const [forecastData, setForecastData] = useState([]);
+  const [hourlyData, setHourlyData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [hide, setHide] = useState(false);
   const [visible, setVisible] = useState(false);
@@ -44,11 +45,17 @@ function App() {
   let fetchCurrentData = async (position, location) => {
     const response = await fetch(
       location === undefined
-        ? `https://api.weatherapi.com/v1/current.json?key=74b6058dd8f54ec484c41910220501&q=${position.coords.latitude},${position.coords.longitude}`
-        : `https://api.weatherapi.com/v1/current.json?key=74b6058dd8f54ec484c41910220501&q=${location}`
+        ? `https://api.weatherapi.com/v1/forecast.json?key=74b6058dd8f54ec484c41910220501&q=${position.coords.latitude},${position.coords.longitude}`
+        : `https://api.weatherapi.com/v1/forecast.json?key=74b6058dd8f54ec484c41910220501&q=${location}`
     );
     const data = await response.json();
     setCurrentData(data);
+
+    let current = new Date(data.current.last_updated).getHours();
+    setHourlyData(
+      data.forecast.forecastday[0].hour.slice(current - 2, current + 3)
+    );
+
     setLoading(false);
   };
 
@@ -113,7 +120,7 @@ function App() {
     if (conditionText.includes("Blizzard")) {
       setCondition("blizzard");
     }
-  }, [currentData, conditionText, condition]);
+  }, [currentData, conditionText]);
 
   return (
     <main className="App">
@@ -136,9 +143,17 @@ function App() {
           visible={visible}
         />
       </section>
-      {hide ? <OtherDetailsMenu currentData={currentData} forecastData={forecastData} /> : ""}
+      {hide ? (
+        <OtherDetailsMenu
+          currentData={currentData}
+          forecastData={forecastData}
+          hourlyData={hourlyData}
+        />
+      ) : (
+        ""
+      )}
     </main>
   );
-}
+};
 
 export default App;

@@ -53,8 +53,8 @@ body {
 // selection
 
 ::selection {
-  background: $onyx;
-  color: $eerie-black;
+  background: lighten($color: $background, $amount: 5%);
+  color: lighten($color: $background, $amount: 60%);
 }
 
 // -------------------- //

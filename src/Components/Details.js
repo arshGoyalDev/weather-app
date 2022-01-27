@@ -79,11 +79,19 @@ const Details = ({
             : "Location"}
         </span>
         <button className="change-btn" onClick={clickHandler}>
-          {loading ? <div className="loader"></div> : "Change"}
+          {loading ? (
+            <div className="loader">
+              <span className="dot dot-one"></span>
+              <span className="dot dot-two"></span>
+              <span className="dot dot-third"></span>
+            </div>
+          ) : (
+            "change"
+          )}
         </button>
         <div className={`details--location-change ${visibility ? "show" : ""}`}>
           <button className="track-btn" onClick={clickHandler}>
-            Track
+            track
           </button>
           <span>Or</span>
           <input
