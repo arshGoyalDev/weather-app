@@ -11,84 +11,132 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    transition: 1s;
-  
-    &.active{
-      width: 75%;
-    }
-    
+    transition: 2s;
+
     &.sunny {
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.7),
+          rgba(0, 0, 0, 0.7)
+        ),
         url(../../Assets/Images/sunny.jpg);
       background-size: cover;
     }
-    
+
     &.clear {
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+      background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.6),
+          rgba(0, 0, 0, 0.6)
+        ),
         url(../../Assets/Images/clear.jpg);
       background-size: cover;
     }
-    
+
     &.cloudy {
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+      background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.6),
+          rgba(0, 0, 0, 0.6)
+        ),
         url(../../Assets/Images/cloudy.jpg);
       background-size: cover;
     }
-    
+
     &.overcast {
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.3),
+          rgba(0, 0, 0, 0.3)
+        ),
         url(../../Assets/Images/overcast.jpg);
       background-size: cover;
     }
-    
+
     &.mist {
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.3),
+          rgba(0, 0, 0, 0.3)
+        ),
         url(../../Assets/Images/mist.jpg);
       background-size: cover;
     }
-    
+
     &.fog {
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.5),
+          rgba(0, 0, 0, 0.5)
+        ),
         url(../../Assets/Images/fog.jpg);
       background-size: cover;
     }
-    
+
     &.rain {
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.5),
+          rgba(0, 0, 0, 0.5)
+        ),
         url(../../Assets/Images/rain.jpg);
       background-size: cover;
     }
-    
+
     &.drizzle {
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.7),
+          rgba(0, 0, 0, 0.7)
+        ),
         url(../../Assets/Images/drizzle.jpg);
       background-size: cover;
     }
-    
+
     &.snow {
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.7),
+          rgba(0, 0, 0, 0.7)
+        ),
         url(../../Assets/Images/snow.jpg);
       background-size: cover;
     }
-    
+
     &.thunder {
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.5),
+          rgba(0, 0, 0, 0.5)
+        ),
         url(../../Assets/Images/thunder.jpg);
       background-size: cover;
     }
-    
+
     &.sleet {
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.5),
+          rgba(0, 0, 0, 0.5)
+        ),
         url(../../Assets/Images/sleet.jpg);
       background-size: cover;
     }
-    
+
     &.blizzard {
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+      background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.4),
+          rgba(0, 0, 0, 0.4)
+        ),
         url(../../Assets/Images/blizzard.jpg);
       background-size: cover;
     }
+
+    @include media-lg {
+      &.active {
+        width: 75%;
+      }
+    }
   }
 }
-
-

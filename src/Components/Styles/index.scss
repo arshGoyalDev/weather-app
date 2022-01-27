@@ -56,25 +56,3 @@ body {
   background: lighten($color: $background, $amount: 5%);
   color: lighten($color: $background, $amount: 60%);
 }
-
-// -------------------- //
-// animation
-// -------------------- //
-
-.animate {
-  animation: hide-show 1.5s ease-in-out;
-}
-
-@keyframes hide-show {
-  0% {
-    transform: scaleX(1);
-  }
-
-  50% {
-    transform: scaleX(0);
-  }
-
-  100% {
-    transform: scaleX(1);
-  }
-}

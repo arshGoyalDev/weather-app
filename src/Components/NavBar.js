@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./Styles/NavBar.scss";
 
-const NavBar = ({ hide }) => {
+const NavBar = ({ hide, otherDetailsMenu, setOtherDetailsMenu }) => {
   // navigation bar click handler
   let clickHandler = () => {
-    console.log("btn clicked");
+    if (hide) {
+      otherDetailsMenu ? setOtherDetailsMenu(false) : setOtherDetailsMenu(true);
+    }
   };
 
   return (
@@ -14,6 +16,7 @@ const NavBar = ({ hide }) => {
         className={`menu-btn ${hide ? "animate" : ""}`}
         onClick={clickHandler}
       >
+        <span></span>
         <span></span>
         <span></span>
       </button>

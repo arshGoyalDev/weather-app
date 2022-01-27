@@ -10,7 +10,7 @@ const Details = ({
   hide,
   visible,
 }) => {
-  const [visibility, setVisibility] = useState(false);
+  const [locationChangeVisibility, setLocationChangeVisibility] = useState(false);
   const [location, updateLocation] = useState("");
 
   // get current date and time
@@ -23,13 +23,19 @@ const Details = ({
   let date = new Date(parts[0], parts[1] - 1, parts[2]);
 
   // handler for clicks on track btn
-  let clickHandler = (e) => {
-    if (e.target.classList.contains("track-btn")) {
-      getLocation();
+  let changeLocation = (e) => {
+    if (location !== "" || location !== " ") {
+      fetchCurrentData("", location);
     }
-    setLoading(true);
-    visibility ? setVisibility(false) : setVisibility(true);
+    loading ? setLoading(false) : setLoading(true);
+    locationChangeVisibility ? setLocationChangeVisibility(false) : setLocationChangeVisibility(true);
   };
+  
+  let trackLocation = () => {
+    getLocation();
+    setLoading(false);
+    setLocationChangeVisibility(false);
+  }
 
   // update the location when the value changes
   let changeHandler = (e) => {
@@ -40,7 +46,7 @@ const Details = ({
   let keyDownHandler = (e) => {
     if (e.keyCode == 13) {
       fetchCurrentData("", location);
-      setVisibility(false);
+      setLocationChangeVisibility(false);
     }
   };
 
@@ -78,7 +84,7 @@ const Details = ({
             ? `${currentData.location.name}, ${currentData.location.country}`
             : "Location"}
         </span>
-        <button className="change-btn" onClick={clickHandler}>
+        <button className="change-btn" onClick={changeLocation}>
           {loading ? (
             <div className="loader">
               <span className="dot dot-one"></span>
@@ -89,8 +95,8 @@ const Details = ({
             "change"
           )}
         </button>
-        <div className={`details--location-change ${visibility ? "show" : ""}`}>
-          <button className="track-btn" onClick={clickHandler}>
+        <div className={`details--location-change ${locationChangeVisibility ? "show" : ""}`}>
+          <button className="track-btn" onClick={trackLocation}>
             track
           </button>
           <span>Or</span>

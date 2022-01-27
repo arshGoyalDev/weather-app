@@ -17,6 +17,7 @@ let App = () => {
   const [conditionText, setConditionText] = useState("");
   const [condition, setCondition] = useState("");
   const [unit, setUnit] = useState("metric");
+  const [otherDetailsMenu, setOtherDetailsMenu] = useState(false);
 
   // hide = true if location is not undefined
   if (currentData.location !== undefined) {
@@ -127,9 +128,13 @@ let App = () => {
       <section
         className={`main ${visible ? condition : ""} ${hide ? "active" : ""}`}
       >
-        <NavBar hide={hide} />
+        <NavBar
+          hide={hide}
+          otherDetailsMenu={otherDetailsMenu}
+          setOtherDetailsMenu={setOtherDetailsMenu}
+        />
         {hide ? (
-          <Weather visible={visible} currentData={currentData.current} />
+          <Weather visible={visible} currentData={currentData.current} unit={unit} />
         ) : (
           <Progress currentData={currentData} hide={hide} />
         )}
@@ -145,9 +150,14 @@ let App = () => {
       </section>
       {hide ? (
         <OtherDetailsMenu
+          hide={hide}
           currentData={currentData}
           forecastData={forecastData}
           hourlyData={hourlyData}
+          otherDetailsMenu={otherDetailsMenu}
+          setOtherDetailsMenu={setOtherDetailsMenu}
+          unit={unit}
+          setUnit={setUnit}
         />
       ) : (
         ""
