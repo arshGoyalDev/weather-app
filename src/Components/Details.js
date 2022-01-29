@@ -24,16 +24,13 @@ const Details = ({
 
   // handler for clicks on track btn
   let changeLocation = (e) => {
-    if (location !== "" || location !== " ") {
-      fetchCurrentData("", location);
-    }
     loading ? setLoading(false) : setLoading(true);
     locationChangeVisibility ? setLocationChangeVisibility(false) : setLocationChangeVisibility(true);
   };
   
   let trackLocation = () => {
     getLocation();
-    setLoading(false);
+    // setLoading(false);
     setLocationChangeVisibility(false);
   }
 
@@ -44,7 +41,7 @@ const Details = ({
 
   // press enter to fetch current data
   let keyDownHandler = (e) => {
-    if (e.keyCode == 13) {
+    if (e.keyCode === 13) {
       fetchCurrentData("", location);
       setLocationChangeVisibility(false);
     }

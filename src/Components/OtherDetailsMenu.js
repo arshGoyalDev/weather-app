@@ -3,7 +3,6 @@ import "./Styles/OtherDetailsMenu.scss";
 import {ReactComponent as CloseIcon} from "../Assets/Images/icon-cross.svg";
 
 const OtherDetailsMenu = ({
-  hide,
   currentData,
   forecastData,
   hourlyData,
@@ -12,7 +11,7 @@ const OtherDetailsMenu = ({
   unit,
   setUnit
 }) => {
-  console.log(currentData, forecastData, hourlyData);
+  // console.log(currentData, forecastData, hourlyData);
 
   let closeOtherDetailsMenu = () => {
     setOtherDetailsMenu(false);
@@ -28,8 +27,10 @@ const OtherDetailsMenu = ({
 
 
   return (
-    <div className={`other-details-menu ${otherDetailsMenu ? "active" : ""} ${hide ? "appear" : ""}`}>
+    <div className={`other-details-menu ${otherDetailsMenu ? "active" : ""}`}>
+      <div className="other-details-menu--toggle-bar"></div>
       <div className="other-details-menu--close">
+        <span>Close</span>
         <button className="close-btn" onClick={closeOtherDetailsMenu}>
           <CloseIcon />
         </button>
@@ -39,10 +40,10 @@ const OtherDetailsMenu = ({
           <span>Location</span> <span>{currentData.location.name}</span>
         </div>
         <div className="other-details-menu--header--unit-change">
-          <button className={`celsius-btn ${unit == "imperial" ? "unselected" : ""}`} onClick={changeUnitToMetric}>
+          <button className={`celsius-btn ${unit === "imperial" ? "unselected" : ""}`} onClick={changeUnitToMetric}>
             C <sup>°</sup>
           </button>
-          <button className={`fahrenheit-btn ${unit == "metric" ? "unselected" : ""}`} onClick={changeUnitToImperial}>
+          <button className={`fahrenheit-btn ${unit === "metric" ? "unselected" : ""}`} onClick={changeUnitToImperial}>
             F <sup>°</sup>
           </button>
         </div>

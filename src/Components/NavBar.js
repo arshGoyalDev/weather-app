@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import "./Styles/NavBar.scss";
 
 const NavBar = ({ hide, otherDetailsMenu, setOtherDetailsMenu }) => {

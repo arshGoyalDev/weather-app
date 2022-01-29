@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import "./Styles/Progress.scss";
 
 const Progress = ({ currentData, hide }) => {

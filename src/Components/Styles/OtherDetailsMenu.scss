@@ -1,8 +1,9 @@
-@use 'variables' as *;
-@use 'mixins' as *;
+@use "variables" as *;
+@use "mixins" as *;
 
-.other-details-menu{
+.other-details-menu {
   position: fixed;
+  z-index: 3;
   height: 100vh;
   right: 0;
   width: 80%;
@@ -10,16 +11,20 @@
   transform: translateX(2000px);
   transition: 1s;
 
-  &.active{
+  &.active {
     transform: translateX(0);
   }
 
-  &--close{
+  &--close {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 15px 20px;
     border-bottom: 2px solid lighten($color: $background-2, $amount: 5%);
 
-    .close-btn{
+    .close-btn {
+      display: grid;
+      place-items: center;
       padding: 5px;
       background: transparent;
       border: 0;
@@ -28,88 +33,97 @@
     }
   }
 
-  &--header{
+  &--header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 25px;
     border-bottom: 2px solid lighten($color: $background-2, $amount: 5%);
 
-    &--city-name{
+    &--city-name {
       display: flex;
       gap: 10px;
 
-      span{
-        &:first-child{
-          font-weight:  $fw-bold;
+      span {
+        &:first-child {
+          font-weight: $fw-bold;
           color: lighten($color: $text-tertiary, $amount: 10%);
           font-size: $fs-200;
         }
 
-        &:last-child{
+        &:last-child {
           font-weight: $fw-bold;
         }
       }
     }
 
-    &--unit-change{
+    &--unit-change {
       display: flex;
       align-items: center;
 
-      button{
+      button {
         font-weight: $fw-medium;
         color: $text-primary;
         padding: 0 15px;
         background: transparent;
         border: 0;
+        cursor: pointer;
 
-        &.celsius-btn{
+        &.celsius-btn {
           padding-left: 0;
-          border-right: 1px solid $text-secondary; 
+          border-right: 1px solid $text-secondary;
         }
 
-        &.fahrenheit-btn{
+        &.fahrenheit-btn {
           padding-right: 0;
-          border-left: 1px solid $text-secondary; 
+          border-left: 1px solid $text-secondary;
         }
 
-        &.unselected{
+        &.unselected {
           color: $text-secondary;
         }
-
-
       }
     }
+  }
+
+  @include media-md() {
+    width: 400px;
   }
 
   @include media-lg() {
     position: initial;
     width: 25%;
     transform: translateX(0);
-    
-    &.appear{
-      transform-origin: right;
-      animation: come-out 1.25s;
-    }
+    animation: come-out 1.25s;
+    border-radius: 35px 0 0 35px;
 
-    &--close{
+    &--close {
       display: none;
     }
-    
-    &--header{
-      padding: 30px;
+
+    &--header {
+      padding: 30px 30px 25px;
     }
   }
+
+  &--toggle-bar {
+    position: absolute;
+    top: 50%;
+    left: -15px;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 160px;
+    background-color: $text-secondary;
+    border-radius: 30px;
+  }  
 }
 
-@keyframes come-out{
-
-  0%{
-    transform: scaleX(0);
+@keyframes come-out {
+  0% {
+    transform: translateX(100%);
   }
 
-  100%{
-    transform: scaleX(1);
+  100% {
+    transform: translateX(0);
   }
-  
 }

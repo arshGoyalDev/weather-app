@@ -15,12 +15,14 @@ nav {
 
   .menu-btn {
     display: flex;
+    justify-content: space-between;
+    align-items: end;
     flex-direction: column;
     width: 50px;
-    height: 20px;
+    height: 24px;
     background: transparent;
     border: 0;
-    padding: 0 7px;
+    padding: 2px 7px;
     transform-origin: right;
     cursor: pointer;
 
@@ -31,7 +33,11 @@ nav {
       background: $text-primary;
 
       &:nth-child(2) {
-        margin: auto 0;
+        width: 70%;
+      }
+
+      &:last-child{
+        width: 35%;
       }
     }
   }

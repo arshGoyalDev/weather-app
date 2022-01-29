@@ -5,6 +5,8 @@
   display: flex;
   min-height: 100vh;
   background: $background;
+  position: relative;
+  overflow: hidden;
 
   .main {
     width: 100%;
@@ -12,7 +14,26 @@
     display: flex;
     flex-direction: column;
     transition: 2s;
+    z-index: 2;
+  
 
+    @include media-lg {
+      &.active {
+        width: 75%;
+      }
+    }
+  }
+
+  .background-wrapper{
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+    z-index: 1;
+    
+    @include media-lg {
+      width: 78%;
+    }
+    
     &.sunny {
       background: linear-gradient(
           to top,
@@ -133,10 +154,5 @@
       background-size: cover;
     }
 
-    @include media-lg {
-      &.active {
-        width: 75%;
-      }
-    }
   }
 }

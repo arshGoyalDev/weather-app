@@ -11,7 +11,7 @@
 }
 
 @mixin media-lg {
-  @media (min-width: 75rem) {
+  @media (min-width: 80rem) {
     @content;
   }
 }
