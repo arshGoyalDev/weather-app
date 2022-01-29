@@ -9,21 +9,18 @@
   gap: 30px;
 
   &--time {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-weight: $fw-bold;
     font-size: $fs-200;
-    transform-origin: left;
+    // transform-origin: left;
 
-    div {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-
-      .dash {
-        display: inline-block;
-        width: 10px;
-        height: 2px;
-        background: $text-primary;
-      }
+    .dash {
+      display: inline-block;
+      width: 10px;
+      height: 2px;
+      background: $text-primary;
     }
   }
 
@@ -32,7 +29,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    transform-origin: right;
+    // transform-origin: right;
 
     .location {
       text-align: center;
@@ -176,28 +173,9 @@
   }
 }
 
-.animate {
-  animation: hide-show 1.5s ease-in-out;
-}
-
-@keyframes hide-show {
-  0% {
-    transform: scaleX(1);
-  }
-
-  50% {
-    transform: scaleX(0);
-  }
-
-  100% {
-    transform: scaleX(1);
-  }
-}
-
 @keyframes loading {
   0% {
     opacity: 1;
-    // transform: rotate(360deg);
   }
 
   100% {

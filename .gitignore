@@ -26,7 +26,7 @@ yarn-error.log*
 /src/Assets/Design/
 
 # test
-/src/Components/Test.js
+/src/Test
 
 # .env
 /.env

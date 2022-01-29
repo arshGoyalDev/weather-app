@@ -56,3 +56,47 @@ body {
   background: lighten($color: $background, $amount: 5%);
   color: lighten($color: $background, $amount: 60%);
 }
+
+// animations
+
+.animate-left {
+  animation: hide-show-right 1.5s ease-in-out;
+}
+
+.animate-right {
+  animation: hide-show-left 1.5s ease-in-out;
+}
+
+@keyframes hide-show-right {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes hide-show-left {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

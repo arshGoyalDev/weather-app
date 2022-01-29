@@ -10,7 +10,8 @@ const Details = ({
   hide,
   visible,
 }) => {
-  const [locationChangeVisibility, setLocationChangeVisibility] = useState(false);
+  const [locationChangeVisibility, setLocationChangeVisibility] =
+    useState(false);
   const [location, updateLocation] = useState("");
 
   // get current date and time
@@ -25,14 +26,16 @@ const Details = ({
   // handler for clicks on track btn
   let changeLocation = (e) => {
     loading ? setLoading(false) : setLoading(true);
-    locationChangeVisibility ? setLocationChangeVisibility(false) : setLocationChangeVisibility(true);
+    locationChangeVisibility
+      ? setLocationChangeVisibility(false)
+      : setLocationChangeVisibility(true);
   };
-  
+
   let trackLocation = () => {
     getLocation();
     // setLoading(false);
     setLocationChangeVisibility(false);
-  }
+  };
 
   // update the location when the value changes
   let changeHandler = (e) => {
@@ -49,9 +52,9 @@ const Details = ({
 
   return (
     <div className="details">
-      <div className={`details--time ${hide ? "animate" : ""}`}>
+      <div className={`details--time ${hide ? "animate-left" : ""}`}>
         {visible ? (
-          <div>
+          <>
             <span>{currentData.location.localtime.substring(11, 16)}</span>{" "}
             <span className="dash"></span>{" "}
             <span>
@@ -60,9 +63,9 @@ const Details = ({
               {date.toLocaleString("default", { month: "short" })}{" "}
               {date.getFullYear()}
             </span>
-          </div>
+          </>
         ) : (
-          <div>
+          <>
             <span>{currentDate.toTimeString().substring(0, 5)}</span>{" "}
             <span className="dash"></span>{" "}
             <span>
@@ -71,11 +74,11 @@ const Details = ({
               {currentDate.toLocaleString("default", { month: "short" })}{" "}
               {currentDate.getFullYear()}
             </span>
-          </div>
+          </>
         )}
       </div>
 
-      <div className={`details--location ${hide ? "animate" : ""}`}>
+      <div className={`details--location ${hide ? "animate-right" : ""}`}>
         <span className="location">
           {visible
             ? `${currentData.location.name}, ${currentData.location.country}`
@@ -92,7 +95,11 @@ const Details = ({
             "change"
           )}
         </button>
-        <div className={`details--location-change ${locationChangeVisibility ? "show" : ""}`}>
+        <div
+          className={`details--location-change ${
+            locationChangeVisibility ? "show" : ""
+          }`}
+        >
           <button className="track-btn" onClick={trackLocation}>
             track
           </button>

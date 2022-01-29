@@ -10,9 +10,11 @@ const NavBar = ({ hide, otherDetailsMenu, setOtherDetailsMenu }) => {
 
   return (
     <nav>
-      <h2 className={`app-name ${hide ? "animate" : ""}`}>weather.today</h2>
+      <h2 className={`app-name ${hide ? "animate-left" : ""}`}>
+        weather.today
+      </h2>
       <button
-        className={`menu-btn ${hide ? "animate" : ""}`}
+        className={`menu-btn ${hide ? "animate-right" : ""}`}
         onClick={clickHandler}
       >
         <span></span>
