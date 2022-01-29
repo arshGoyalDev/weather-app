@@ -31,9 +31,9 @@ const Details = ({
       : setLocationChangeVisibility(true);
   };
 
+  // track current location
   let trackLocation = () => {
     getLocation();
-    // setLoading(false);
     setLocationChangeVisibility(false);
   };
 
