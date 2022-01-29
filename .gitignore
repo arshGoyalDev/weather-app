@@ -27,3 +27,6 @@ yarn-error.log*
 
 # test
 /src/Components/Test.js
+
+# .env
+/.env
