@@ -12,9 +12,7 @@ export const getCurrentData = async (position, location) => {
 // get forecast data for the given lat lon
 export const getForecastData = async (lat, lon, unit) => {
   const response = await fetch(
-    // unit === "metric"
-      // ? `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&units=metric&APPID=${process.env.REACT_APP_OPEN_WEATHER_API_KEY}`
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&units=${unit}&APPID=${process.env.REACT_APP_OPEN_WEATHER_API_KEY}`
+    `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&units=${unit}&APPID=${process.env.REACT_APP_OPEN_WEATHER_API_KEY}`
   );
   const data = await response.json();
   return data;

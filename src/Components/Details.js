@@ -12,7 +12,7 @@ const Details = ({
 }) => {
   const [locationChangeVisibility, setLocationChangeVisibility] =
     useState(false);
-  const [location, updateLocation] = useState("");
+  const [location, setLocation] = useState("");
 
   // get current date and time
   let parts = (
@@ -39,7 +39,7 @@ const Details = ({
 
   // update the location when the value changes
   let changeHandler = (e) => {
-    updateLocation(e.target.value);
+    setLocation(e.target.value);
   };
 
   // press enter to fetch current data
