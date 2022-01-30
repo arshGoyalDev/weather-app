@@ -1,6 +1,6 @@
 import React from "react";
-import "./styles/OtherDetailsMenu.scss";
-import { ReactComponent as CloseIcon } from "../assets/images/icon-cross.svg";
+import "./Styles/OtherDetailsMenu.scss";
+import { ReactComponent as CloseIcon } from "../Assets/Images/icon-cross.svg";
 
 const OtherDetailsMenu = ({
   currentData,

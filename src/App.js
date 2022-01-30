@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import "./components/styles/App.scss";
+import "./Components/Styles/App.scss";
 
 import { getCurrentData, getForecastData, getCondition, getPreferredTheme } from "./utils";
 
-import NavBar from "./components/NavBar";
-import Details from "./components/Details";
-import Progress from "./components/Progress";
-import Weather from "./components/Weather";
-import OtherDetailsMenu from "./components/OtherDetailsMenu";
+import NavBar from "./Components/NavBar";
+import Details from "./Components/Details";
+import Progress from "./Components/Progress";
+import Weather from "./Components/Weather";
+import OtherDetailsMenu from "./Components/OtherDetailsMenu";
 
 const App = () => {
   const [currentData, setCurrentData] = useState({});
