@@ -58,3 +58,6 @@ const OtherDetailsMenu = ({
 };
 
 export default OtherDetailsMenu;
+
+
+{/* <a href="https://icons8.com/icon/uEV36IijHymM/weather">Weather icon by Icons8</a> */}

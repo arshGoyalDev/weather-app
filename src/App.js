@@ -9,7 +9,7 @@ import Progress from "./Components/Progress";
 import Weather from "./Components/Weather";
 import OtherDetailsMenu from "./Components/OtherDetailsMenu";
 
-let App = () => {
+const App = () => {
   const [currentData, setCurrentData] = useState({});
   const [forecastData, setForecastData] = useState([]);
   const [hourlyData, setHourlyData] = useState([]);
