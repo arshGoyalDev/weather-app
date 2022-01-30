@@ -16,12 +16,18 @@
     transition: 2s;
     z-index: 2;
 
-    @include media-lg {
-      &.active {
+    &.active {
+      @include media-lg() {
         width: 75%;
+      }
+
+      @include media-xl() {
+        width: 78%;
       }
     }
   }
+
+
 
   .background-wrapper {
     position: absolute;
@@ -29,8 +35,12 @@
     min-height: 100vh;
     z-index: 1;
 
-    @include media-lg {
+    @include media-lg() {
       width: 78%;
+    }
+
+    @include media-xl() {
+      width: 81%;
     }
 
     &.sunny {
@@ -39,7 +49,7 @@
           rgba(0, 0, 0, 0.7),
           rgba(0, 0, 0, 0.7)
         ),
-        url(../../Assets/Images/sunny.jpg);
+        url(../../assets/images/sunny.jpg);
       background-size: cover;
     }
 
@@ -49,7 +59,7 @@
           rgba(0, 0, 0, 0.6),
           rgba(0, 0, 0, 0.6)
         ),
-        url(../../Assets/Images/clear.jpg);
+        url(../../assets/images/clear.jpg);
       background-size: cover;
     }
 
@@ -59,7 +69,7 @@
           rgba(0, 0, 0, 0.6),
           rgba(0, 0, 0, 0.6)
         ),
-        url(../../Assets/Images/cloudy.jpg);
+        url(../../assets/images/cloudy.jpg);
       background-size: cover;
     }
 
@@ -69,7 +79,7 @@
           rgba(0, 0, 0, 0.3),
           rgba(0, 0, 0, 0.3)
         ),
-        url(../../Assets/Images/overcast.jpg);
+        url(../../assets/images/overcast.jpg);
       background-size: cover;
     }
 
@@ -79,7 +89,7 @@
           rgba(0, 0, 0, 0.3),
           rgba(0, 0, 0, 0.3)
         ),
-        url(../../Assets/Images/mist.jpg);
+        url(../../assets/images/mist.jpg);
       background-size: cover;
     }
 
@@ -89,7 +99,7 @@
           rgba(0, 0, 0, 0.5),
           rgba(0, 0, 0, 0.5)
         ),
-        url(../../Assets/Images/fog.jpg);
+        url(../../assets/images/fog.jpg);
       background-size: cover;
     }
 
@@ -99,7 +109,7 @@
           rgba(0, 0, 0, 0.5),
           rgba(0, 0, 0, 0.5)
         ),
-        url(../../Assets/Images/rain.jpg);
+        url(../../assets/images/rain.jpg);
       background-size: cover;
     }
 
@@ -109,7 +119,7 @@
           rgba(0, 0, 0, 0.7),
           rgba(0, 0, 0, 0.7)
         ),
-        url(../../Assets/Images/drizzle.jpg);
+        url(../../assets/images/drizzle.jpg);
       background-size: cover;
     }
 
@@ -119,7 +129,7 @@
           rgba(0, 0, 0, 0.7),
           rgba(0, 0, 0, 0.7)
         ),
-        url(../../Assets/Images/snow.jpg);
+        url(../../assets/images/snow.jpg);
       background-size: cover;
     }
 
@@ -129,7 +139,7 @@
           rgba(0, 0, 0, 0.5),
           rgba(0, 0, 0, 0.5)
         ),
-        url(../../Assets/Images/thunder.jpg);
+        url(../../assets/images/thunder.jpg);
       background-size: cover;
     }
 
@@ -139,7 +149,7 @@
           rgba(0, 0, 0, 0.5),
           rgba(0, 0, 0, 0.5)
         ),
-        url(../../Assets/Images/sleet.jpg);
+        url(../../assets/images/sleet.jpg);
       background-size: cover;
     }
 
@@ -149,7 +159,7 @@
           rgba(0, 0, 0, 0.4),
           rgba(0, 0, 0, 0.4)
         ),
-        url(../../Assets/Images/blizzard.jpg);
+        url(../../assets/images/blizzard.jpg);
       background-size: cover;
     }
   }

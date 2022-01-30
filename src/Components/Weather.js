@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Styles/Weather.scss";
+import "./styles/Weather.scss";
 
 const Weather = ({ visible, currentData, unit }) => {
   let [quotesVisible, setQuotesVisible] = useState(false);

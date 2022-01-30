@@ -1,4 +1,4 @@
-import "./Styles/NavBar.scss";
+import "./styles/NavBar.scss";
 
 const NavBar = ({ hide, otherDetailsMenu, setOtherDetailsMenu }) => {
   // navigation bar click handler

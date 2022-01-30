@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import "./Components/Styles/App.scss";
+import "./components/styles/App.scss";
 
-import { getCurrentData, getForecastData, getCondition } from "./utils";
+import { getCurrentData, getForecastData, getCondition, getPreferredTheme } from "./utils";
 
-import NavBar from "./Components/NavBar";
-import Details from "./Components/Details";
-import Progress from "./Components/Progress";
-import Weather from "./Components/Weather";
-import OtherDetailsMenu from "./Components/OtherDetailsMenu";
+import NavBar from "./components/NavBar";
+import Details from "./components/Details";
+import Progress from "./components/Progress";
+import Weather from "./components/Weather";
+import OtherDetailsMenu from "./components/OtherDetailsMenu";
 
 const App = () => {
   const [currentData, setCurrentData] = useState({});
@@ -19,6 +19,7 @@ const App = () => {
   const [condition, setCondition] = useState("");
   const [unit, setUnit] = useState("metric");
   const [otherDetailsMenu, setOtherDetailsMenu] = useState(false);
+  // const [theme, setTheme] =
 
   if (currentData.location !== undefined) {
     setTimeout(() => {
@@ -29,6 +30,8 @@ const App = () => {
       }, 1000);
     }, 1000);
   }
+
+  console.log(getPreferredTheme());
 
   // get current location from navigator geolocation
   const getLocation = () => {

@@ -1,4 +1,4 @@
-import "./Styles/Progress.scss";
+import "./styles/Progress.scss";
 
 const Progress = ({ currentData, hide }) => {
   return (

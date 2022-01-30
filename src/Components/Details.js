@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Styles/Details.scss";
+import "./styles/Details.scss";
 
 const Details = ({
   getLocation,

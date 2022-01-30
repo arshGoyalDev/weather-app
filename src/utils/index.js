@@ -61,3 +61,14 @@ export const getCondition = (condition) => {
     return "blizzard";
   }
 };
+
+
+export const getPreferredTheme = () => {
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches)  {
+    return "dark";
+  } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+    return "light";
+  } else {
+    return "dark";
+  }
+}
