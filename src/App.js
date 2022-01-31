@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Components/Styles/App.scss";
 
-import { getCurrentData, getForecastData, getCondition, getPreferredTheme } from "./utils";
+import { getCurrentData, getForecastData, getCondition } from "./utils";
 
 import NavBar from "./Components/NavBar";
 import Details from "./Components/Details";
@@ -19,7 +19,6 @@ const App = () => {
   const [condition, setCondition] = useState("");
   const [unit, setUnit] = useState("metric");
   const [otherDetailsMenu, setOtherDetailsMenu] = useState(false);
-  // const [theme, setTheme] =
 
   if (currentData.location !== undefined) {
     setTimeout(() => {
@@ -30,8 +29,6 @@ const App = () => {
       }, 1000);
     }, 1000);
   }
-
-  console.log(getPreferredTheme());
 
   // get current location from navigator geolocation
   const getLocation = () => {
@@ -44,15 +41,13 @@ const App = () => {
 
   // fetch current and  hourly forecast data for current location
   let fetchCurrentData = (position, location) => {
-    getCurrentData(position, location).then((data) => {
-      setCurrentData(data);
-      let current = new Date(data.current.last_updated).getHours();
-      setHourlyData(
-        data.forecast.forecastday[0].hour.slice(current - 2, current + 3)
-      );
-
-      setLoading(false);
-    });
+    getCurrentData(
+      position,
+      location,
+      setCurrentData,
+      setHourlyData,
+      setLoading
+    );
   };
 
   useEffect(() => {
@@ -60,11 +55,9 @@ const App = () => {
       getForecastData(
         currentData.location.lat,
         currentData.location.lon,
-        unit
-      ).then((data) => {
-        setForecastData(data.daily.slice(1, 8));
-      });
-
+        unit,
+        setForecastData
+      );
       setCondition(getCondition(currentData.current.condition.text));
     }
   }, [currentData, unit]);

@@ -1,21 +1,28 @@
 // fetch current weather data for the given location
-export const getCurrentData = async (position, location) => {
+export const getCurrentData = async (position, location, setCurrentData, setHourlyData, setLoading) => {
   const response = await fetch(
     location === undefined
       ? `https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_API_KEY}&q=${position.coords.latitude},${position.coords.longitude}`
       : `https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_API_KEY}&q=${location}`
   );
   const data = await response.json();
-  return data;
+
+  setCurrentData(data);
+  const current = new Date(data.current.last_updated).getHours();
+  // console.log(data.forecast.forecastday[0].hour.slice(current - 2, current + 3));
+  setHourlyData(
+    data.forecast.forecastday[0].hour.slice(current - 2, current + 3)
+  );
+  setLoading(false);
 };
 
 // get forecast data for the given lat lon
-export const getForecastData = async (lat, lon, unit) => {
+export const getForecastData = async (lat, lon, unit, setForecastData) => {
   const response = await fetch(
     `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&units=${unit}&APPID=${process.env.REACT_APP_OPEN_WEATHER_API_KEY}`
   );
   const data = await response.json();
-  return data;
+  setForecastData(data.daily.slice(1, 8));
 };
 
 // converts a condition to a human readable string
@@ -61,14 +68,3 @@ export const getCondition = (condition) => {
     return "blizzard";
   }
 };
-
-
-export const getPreferredTheme = () => {
-  if (window.matchMedia('(prefers-color-scheme: dark)').matches)  {
-    return "dark";
-  } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-    return "light";
-  } else {
-    return "dark";
-  }
-}

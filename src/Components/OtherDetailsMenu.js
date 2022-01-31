@@ -11,6 +11,8 @@ const OtherDetailsMenu = ({
   unit,
   setUnit,
 }) => {
+  // console.log(hourlyData);
+
   let weatherDetails = [
     {
       id: 1,
@@ -53,7 +55,6 @@ const OtherDetailsMenu = ({
       value: `${currentData.current.uv}`,
     },
   ];
-  // console.log(currentData);
 
   let closeOtherDetailsMenu = () => {
     setOtherDetailsMenu(false);
@@ -69,7 +70,6 @@ const OtherDetailsMenu = ({
 
   return (
     <div className={`other-details-menu ${otherDetailsMenu ? "active" : ""}`}>
-      <div className="other-details-menu--toggle-bar"></div>
       <div className="other-details-menu--close">
         <span>Close</span>
         <button className="close-btn" onClick={closeOtherDetailsMenu}>
