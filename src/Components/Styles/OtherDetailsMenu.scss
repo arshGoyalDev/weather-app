@@ -86,7 +86,8 @@
     }
   }
 
-  &--weather-details{
+  &--weather-details,
+  &--forecast {
     padding: 40px 25px;
     border-bottom: 2px solid lighten($color: $background-2, $amount: 5%);
   }
@@ -110,7 +111,8 @@
       padding: 30px 30px 25px;
     }
 
-    &--weather-details{
+    &--weather-details,
+    &--forecast {
       padding: 50px 35px;
     }
   }

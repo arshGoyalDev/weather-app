@@ -3,7 +3,6 @@ import "./Styles/OtherDetailsMenu.scss";
 import { ReactComponent as CloseIcon } from "../Assets/Images/icon-cross.svg";
 import Detail from "./Detail";
 
-
 const OtherDetailsMenu = ({
   currentData,
   forecastData,
@@ -13,6 +12,69 @@ const OtherDetailsMenu = ({
   unit,
   setUnit,
 }) => {
+  console.log(forecastData);
+
+  let forecast = [
+    {
+      id: 1,
+      name: "",
+      max: ``,
+      min: ``,
+    },
+    {
+      id: 2,
+      name: "",
+      max: ``,
+      min: ``,
+    },
+    {
+      id: 3,
+      name: "",
+      max: ``,
+      min: ``,
+    },
+    {
+      id: 4,
+      name: "",
+      max: ``,
+      min: ``,
+    },
+    {
+      id: 5,
+      name: "",
+      max: ``,
+      min: ``,
+    },
+    {
+      id: 6,
+      name: "",
+      max: ``,
+      min: ``,
+    },
+    {
+      id: 7,
+      name: "",
+      max: ``,
+      min: ``,
+    },
+  ];
+
+  let dayName = "";
+
+  let changeValue = (dayName, index, max, min) => {
+    forecast[index].name = dayName;
+    forecast[index].max = max;
+    forecast[index].min = min;
+  };
+
+  forecastData.map((day) => {
+    dayName = new Date(day.dt * 1000).toLocaleString("en-us", {
+      weekday: "long",
+    });
+
+    changeValue(dayName, forecastData.indexOf(day), day.temp.max, day.temp.min);
+  });
+
   let weatherDetails = [
     {
       id: 1,
@@ -100,6 +162,10 @@ const OtherDetailsMenu = ({
 
       <div className="other-details-menu--weather-details">
         <Detail title={"Weather Details"} data={weatherDetails} />
+      </div>
+
+      <div className="other-details-menu--forecast">
+        <Detail title={"Weather Forecast"} data={forecast} forecast={true} />
       </div>
     </div>
   );
