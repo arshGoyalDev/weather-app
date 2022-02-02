@@ -4,7 +4,7 @@ import "./Components/Styles/App.scss";
 import { getCurrentData, getForecastData, getCondition } from "./utils";
 
 import NavBar from "./Components/NavBar";
-import Details from "./Components/Details";
+import DetailsBar from "./Components/DetailsBar";
 import Progress from "./Components/Progress";
 import Weather from "./Components/Weather";
 import OtherDetailsMenu from "./Components/OtherDetailsMenu";
@@ -80,7 +80,7 @@ const App = () => {
         ) : (
           <Progress currentData={currentData} hide={hide} />
         )}
-        <Details
+        <DetailsBar
           getLocation={getLocation}
           fetchCurrentData={fetchCurrentData}
           currentData={currentData}

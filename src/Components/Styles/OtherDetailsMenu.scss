@@ -89,34 +89,6 @@
   &--weather-details{
     padding: 40px 25px;
     border-bottom: 2px solid lighten($color: $background-2, $amount: 5%);
-
-    h4{
-      font-size: $fs-300;
-    }
-
-    & > div{
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-top: 30px;
-    }
-
-    &--detail{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      &-title{
-        font-size: $fs-200;
-        font-weight: $fw-bold;
-        color: lighten($color: $text-tertiary, $amount: 10%);
-      }
-
-      &-value{
-        font-weight: $fw-medium;
-        color: lighten($color: $text-secondary, $amount: 30%);
-      }
-    }
   }
 
   @include media-md() {
@@ -140,10 +112,6 @@
 
     &--weather-details{
       padding: 50px 35px;
-
-      & > div{
-        margin-top: 35px;       
-      }
     }
   }
 

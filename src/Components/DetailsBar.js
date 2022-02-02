@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./Styles/Details.scss";
+import "./Styles/DetailsBar.scss";
 
-const Details = ({
+const DetailsBar = ({
   getLocation,
   fetchCurrentData,
   currentData,
@@ -119,4 +119,4 @@ const Details = ({
   );
 };
 
-export default Details;
+export default DetailsBar;

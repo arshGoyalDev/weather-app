@@ -1,0 +1,35 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.details-title {
+  font-size: $fs-300;
+}
+
+.details-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 30px;
+  
+  .detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    &--title {
+      font-size: $fs-200;
+      font-weight: $fw-bold;
+      color: lighten($color: $text-tertiary, $amount: 10%);
+    }
+  
+    &--value {
+      font-weight: $fw-medium;
+      color: lighten($color: $text-secondary, $amount: 30%);
+    }
+  }
+
+  @include media-lg() {
+    margin-top: 35px;       
+  }
+}
+

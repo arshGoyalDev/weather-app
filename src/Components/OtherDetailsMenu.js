@@ -1,6 +1,8 @@
 import React from "react";
 import "./Styles/OtherDetailsMenu.scss";
 import { ReactComponent as CloseIcon } from "../Assets/Images/icon-cross.svg";
+import Detail from "./Detail";
+
 
 const OtherDetailsMenu = ({
   currentData,
@@ -11,8 +13,6 @@ const OtherDetailsMenu = ({
   unit,
   setUnit,
 }) => {
-  // console.log(hourlyData);
-
   let weatherDetails = [
     {
       id: 1,
@@ -99,22 +99,7 @@ const OtherDetailsMenu = ({
       </div>
 
       <div className="other-details-menu--weather-details">
-        <h4>Weather Details</h4>
-        <div>
-          {weatherDetails.map((detail) => (
-            <div
-              className="other-details-menu--weather-details--detail"
-              key={detail.id}
-            >
-              <span className="other-details-menu--weather-details--detail-title">
-                {detail.name}
-              </span>
-              <span className="other-details-menu--weather-details--detail-value">
-                {detail.value}
-              </span>
-            </div>
-          ))}
-        </div>
+        <Detail title={"Weather Details"} data={weatherDetails} />
       </div>
     </div>
   );
