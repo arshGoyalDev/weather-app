@@ -2,6 +2,7 @@ import React from "react";
 import "./Styles/OtherDetailsMenu.scss";
 import { ReactComponent as CloseIcon } from "../Assets/Images/icon-cross.svg";
 import Detail from "./Detail";
+import OtherLocations from "./OtherLocations";
 
 const OtherDetailsMenu = ({
   currentData,
@@ -167,6 +168,8 @@ const OtherDetailsMenu = ({
       <div className="other-details-menu--forecast">
         <Detail title={"Weather Forecast"} data={forecast} forecast={true} />
       </div>
+
+      <OtherLocations />
     </div>
   );
 };
