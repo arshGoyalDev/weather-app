@@ -1,5 +1,11 @@
 // fetch current weather data for the given location
-export const getCurrentData = async (position, location, setCurrentData, setHourlyData, setLoading) => {
+export const getCurrentData = async (
+  position,
+  location,
+  setCurrentData,
+  setHourlyData,
+  setLoading
+) => {
   const response = await fetch(
     location === undefined
       ? `https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_API_KEY}&q=${position.coords.latitude},${position.coords.longitude}`
