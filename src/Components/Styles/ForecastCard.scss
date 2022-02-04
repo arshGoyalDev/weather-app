@@ -1,0 +1,101 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.forecast-card {
+  padding: 20px;
+  background: lighten($color: $background-2, $amount: 10%);
+  border-radius: 10px;
+
+  &--header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .day-condition {
+      p {
+        font-size: $fs-400;
+        font-weight: $fw-bold;
+        margin-bottom: 5px;
+      }
+
+      span {
+        color: lighten($color: $background-2, $amount: 40%);
+        font-weight: $fw-bold;
+      }
+    }
+
+    .icon {
+      img {
+        width: 100px;
+        height: 60px;
+        object-fit: cover;
+      }
+    }
+  }
+
+  &--body {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    padding-right: 15px;
+
+    .forecast-details {
+      p {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        color: $text-secondary;
+        font-weight: $fw-medium;
+
+        &:first-child{
+          gap: 10px;
+        }
+
+        img {
+          filter: invert(1);
+        }
+
+        &:first-child {
+          margin-bottom: 5px;
+        }
+
+        span {
+          color: $text-primary;
+          font-weight: $fw-bold;
+        }
+      }
+    }
+
+    .forecast-temp {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+
+      span {
+        &:first-child,
+        &:last-child {
+          font-size: $fs-500;
+          font-weight: $fw-bold;
+        }
+
+        &:nth-child(2) {
+          color: $text-secondary;
+          margin-inline: 8px;
+        }
+      }
+    }
+  }
+
+  @include media-md() {
+    &--body {
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+
+      .forecast-temp {
+        margin-top: 0;
+        padding-bottom: 5px;
+      }
+    }
+  }
+}

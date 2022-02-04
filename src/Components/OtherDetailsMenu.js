@@ -3,6 +3,7 @@ import "./Styles/OtherDetailsMenu.scss";
 import { ReactComponent as CloseIcon } from "../Assets/Images/icon-cross.svg";
 import Detail from "./Detail";
 import OtherLocations from "./OtherLocations";
+import ForecastCard from "./ForecastCard";
 
 const OtherDetailsMenu = ({
   currentData,
@@ -12,69 +13,8 @@ const OtherDetailsMenu = ({
   unit,
   setUnit,
   addNewLocation,
-  otherLocations
+  otherLocations,
 }) => {
-  let forecast = [
-    {
-      id: 1,
-      name: "",
-      max: ``,
-      min: ``,
-    },
-    {
-      id: 2,
-      name: "",
-      max: ``,
-      min: ``,
-    },
-    {
-      id: 3,
-      name: "",
-      max: ``,
-      min: ``,
-    },
-    {
-      id: 4,
-      name: "",
-      max: ``,
-      min: ``,
-    },
-    {
-      id: 5,
-      name: "",
-      max: ``,
-      min: ``,
-    },
-    {
-      id: 6,
-      name: "",
-      max: ``,
-      min: ``,
-    },
-    {
-      id: 7,
-      name: "",
-      max: ``,
-      min: ``,
-    },
-  ];
-
-  let dayName = "";
-
-  let changeValue = (dayName, index, max, min) => {
-    forecast[index].name = dayName;
-    forecast[index].max = max;
-    forecast[index].min = min;
-  };
-
-  forecastData.map((day) => {
-    dayName = new Date(day.dt * 1000).toLocaleString("en-us", {
-      weekday: "long",
-    });
-
-    changeValue(dayName, forecastData.indexOf(day), day.temp.max, day.temp.min);
-  });
-
   let weatherDetails = [
     {
       id: 1,
@@ -165,16 +105,24 @@ const OtherDetailsMenu = ({
       </div>
 
       <div className="other-details-menu--forecast">
-        <Detail title={"Weather Forecast"} data={forecast} forecast={true} />
+        <h4>Weather Forecast</h4>
+        <div className="forecast-cards-container">
+        {forecastData.map((data) => (
+          <ForecastCard key={data.dt} data={data} />
+        ))}
+        </div>
       </div>
 
-      <OtherLocations addNewLocation={addNewLocation} otherLocations={otherLocations} />
+      <OtherLocations
+        addNewLocation={addNewLocation}
+        otherLocations={otherLocations}
+      />
     </div>
   );
 };
 
 export default OtherDetailsMenu;
 
-{
-  /* <a href="https://icons8.com/icon/uEV36IijHymM/weather">Weather icon by Icons8</a> */
-}
+  // /* <a href="https://icons8.com/icon/uEV36IijHymM/weather">Weather icon by Icons8</a> */Favicon
+// {/* <a href="https://icons8.com/icon/18481/humidity">Humidity icon by Icons8</a> */} humidity icon
+{/* <a href="https://icons8.com/icon/649/clouds">Clouds icon by Icons8</a> clouds icon */}

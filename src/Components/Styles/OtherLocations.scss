@@ -2,7 +2,7 @@
 @use "mixins" as *;
 
 .other-locations {
-  padding: 40px 35px;
+  padding: 40px 25px;
 
   &--add-new-location {
     position: relative;
@@ -82,19 +82,24 @@
       cursor: pointer;
     }
 
-    @include media-lg() {
+  }
+
+  @include media-lg() {
+    padding-inline: 35px;
+    
+    &--add-new-location {
       flex-direction: row;
       align-items: center;
-
+  
       .add-location-input,
       .information{
         width: 70%;
       }
-
+  
       .add-illustration{
         width: 30%;
         padding: 0 20px 0 0;
-      }
+      }      
     }
   }
 

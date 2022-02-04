@@ -1,23 +1,24 @@
 import React, { useState } from "react";
 import "./Styles/OtherLocations.scss";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
-const OtherLocations = ({addNewLocation, otherLocations}) => {
-
-  console.log(otherLocations);
+const OtherLocations = ({ addNewLocation, otherLocations }) => {
+  // console.log(otherLocations);
 
   const [newLocation, setNewLocation] = useState("");
   const [adding, setAdding] = useState(false);
 
   const showInput = () => {
     adding ? setAdding(false) : setAdding(true);
-  }
+  };
 
   const addLocation = () => {
-    if (newLocation == '' || newLocation == ' ') return;
+    if (newLocation == "" || newLocation == " ") return;
     addNewLocation(newLocation);
-  }
+    setNewLocation("");
+    setAdding(false);
+  };
 
   return (
     <div className="other-locations">
@@ -33,15 +34,17 @@ const OtherLocations = ({addNewLocation, otherLocations}) => {
                 setNewLocation(e.target.value);
               }}
             />
-            <button className="add-new-location-btn" onClick={addLocation}>Add</button>
+            <button className="add-new-location-btn" onClick={addLocation}>
+              Add
+            </button>
           </div>
         ) : (
           <div className="information">
             <div>
               <p>Add a location</p>
               <p>
-                Additional locations to track weather of your favorite places in
-                the world.
+                Other locations to track weather of your favorite places in the
+                world.
               </p>
             </div>
           </div>
@@ -51,7 +54,13 @@ const OtherLocations = ({addNewLocation, otherLocations}) => {
         </div>
       </div>
 
-      <div className="other-locations--locations"></div>
+      <div className="other-locations--locations">
+        {otherLocations.length !== 0 ? otherLocations.map((data) => (
+          <div className="other-locations-locations-card" key={data.location.name}>
+
+          </div>
+        )) : ""}
+      </div>
     </div>
   );
 };

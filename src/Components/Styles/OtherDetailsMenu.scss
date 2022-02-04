@@ -108,6 +108,15 @@
     border-bottom: 2px solid lighten($color: $background-2, $amount: 5%);
   }
 
+  &--forecast {
+    .forecast-cards-container {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+
   @include media-md() {
     width: 400px;
   }
@@ -130,6 +139,12 @@
     &--weather-details,
     &--forecast {
       padding: 50px 35px;
+    }
+
+    &--forecast {
+      .forecast-cards-container {
+        margin-top: 35px;
+      }
     }
   }
 
