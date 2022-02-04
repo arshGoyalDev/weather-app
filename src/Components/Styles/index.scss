@@ -53,14 +53,14 @@ body {
 // selection
 
 ::selection {
-  background: lighten($color: $background, $amount: 5%);
-  color: lighten($color: $background, $amount: 60%);
+  background: lighten($color: $background, $amount: 10%);
+  color: $text-primary;
 }
 
 // animations
 
 .animate-left {
-  animation: hide-show-right 1.5s ease-in-out;
+  animation: hide-show-right 1.5s e5ase-in-out;
 }
 
 .animate-right {

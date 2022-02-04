@@ -6,9 +6,9 @@ const OtherLocations = () => {
   const [adding, setAdding] = useState(false);
 
   return (
-    <div className="additional-locations">
+    <div className="other-locations">
       <h4>Additional Locations</h4>
-      <div className="additional-locations--add-new-location">
+      <div className="other-locations--add-new-location">
         {adding ? (
           <div className="input">
             <input
@@ -37,7 +37,7 @@ const OtherLocations = () => {
         </div>
       </div>
 
-      <div className="additional-locations--location-container"></div>
+      <div className="other-locations--locations"></div>
     </div>
   );
 };

@@ -10,11 +10,21 @@
   background-color: $background-2;
   transform: translateX(2000px);
   transition: 1s;
-  overflow: auto;
+  overflow-y: auto;
   scrollbar-width: none;
 
+  @supports (scrollbar-width: thin) {
+    scrollbar-width: thin;
+    scrollbar-color: lighten($color: $background-2, $amount: 20%) transparent;
+  }
+
   &::-webkit-scrollbar {
-    width: 0;
+    width: 5px;
+
+    &-thumb{
+      border-radius: 50px;
+      background: lighten($color: $background-2, $amount: 20%);
+    }
   }
 
   &.active {
