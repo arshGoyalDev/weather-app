@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Components/Styles/App.scss";
 
-import { getCurrentData, getForecastData, getCondition } from "./utils";
+import { getCurrentData, getForecastData, getCondition, getOtherLocationData } from "./utils";
 
 import NavBar from "./Components/NavBar";
 import DetailsBar from "./Components/DetailsBar";
@@ -12,13 +12,13 @@ import OtherDetailsMenu from "./Components/OtherDetailsMenu";
 const App = () => {
   const [currentData, setCurrentData] = useState({});
   const [forecastData, setForecastData] = useState([]);
-  const [hourlyData, setHourlyData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [hide, setHide] = useState(false);
   const [visible, setVisible] = useState(false);
   const [condition, setCondition] = useState("");
   const [unit, setUnit] = useState("metric");
   const [otherDetailsMenu, setOtherDetailsMenu] = useState(false);
+  const [otherLocations, setOtherLocations] = useState([]);
 
   if (currentData.location !== undefined) {
     setTimeout(() => {
@@ -45,7 +45,6 @@ const App = () => {
       position,
       location,
       setCurrentData,
-      setHourlyData,
       setLoading
     );
   };
@@ -61,6 +60,12 @@ const App = () => {
       setCondition(getCondition(currentData.current.condition.text));
     }
   }, [currentData, unit]);
+
+  const addNewLocation = (location) => {
+    getOtherLocationData(location, otherLocations, setOtherLocations)
+    // console.log(location)
+  }
+
 
   return (
     <main className="App">
@@ -94,11 +99,12 @@ const App = () => {
         <OtherDetailsMenu
           currentData={currentData}
           forecastData={forecastData}
-          hourlyData={hourlyData}
           otherDetailsMenu={otherDetailsMenu}
           setOtherDetailsMenu={setOtherDetailsMenu}
           unit={unit}
           setUnit={setUnit}
+          addNewLocation={addNewLocation}
+          otherLocations={otherLocations}
         />
       ) : (
         ""

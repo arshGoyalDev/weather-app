@@ -3,7 +3,10 @@ import "./Styles/OtherLocations.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
-const OtherLocations = () => {
+const OtherLocations = ({addNewLocation, otherLocations}) => {
+
+  console.log(otherLocations);
+
   const [newLocation, setNewLocation] = useState("");
   const [adding, setAdding] = useState(false);
 
@@ -11,9 +14,14 @@ const OtherLocations = () => {
     adding ? setAdding(false) : setAdding(true);
   }
 
+  const addLocation = () => {
+    if (newLocation == '' || newLocation == ' ') return;
+    addNewLocation(newLocation);
+  }
+
   return (
     <div className="other-locations">
-      <h4>Additional Locations</h4>
+      <h4>Other Locations</h4>
       <div className="other-locations--add-new-location">
         {adding ? (
           <div className="add-location-input">
@@ -25,7 +33,7 @@ const OtherLocations = () => {
                 setNewLocation(e.target.value);
               }}
             />
-            <button className="add-new-location-btn">Add</button>
+            <button className="add-new-location-btn" onClick={addLocation}>Add</button>
           </div>
         ) : (
           <div className="information">

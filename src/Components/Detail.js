@@ -1,8 +1,6 @@
 import "./Styles/Detail.scss";
 
 const Detail = ({ title, data, forecast }) => {
-  console.log(data);
-
   return (
     <>
       <h3 className="details-title">{title}</h3>

@@ -3,7 +3,6 @@ export const getCurrentData = async (
   position,
   location,
   setCurrentData,
-  setHourlyData,
   setLoading
 ) => {
   const response = await fetch(
@@ -14,11 +13,6 @@ export const getCurrentData = async (
   const data = await response.json();
 
   setCurrentData(data);
-  const current = new Date(data.current.last_updated).getHours();
-  // console.log(data.forecast.forecastday[0].hour.slice(current - 2, current + 3));
-  setHourlyData(
-    data.forecast.forecastday[0].hour.slice(current - 2, current + 3)
-  );
   setLoading(false);
 };
 
@@ -29,6 +23,18 @@ export const getForecastData = async (lat, lon, unit, setForecastData) => {
   );
   const data = await response.json();
   setForecastData(data.daily.slice(1, 8));
+};
+
+export const getOtherLocationData = async (
+  location,
+  otherLocations,
+  setOtherLocations
+) => {
+  const response = await fetch(
+    `https://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_WEATHER_API_KEY}&q=${location}`
+  );
+  const data = await response.json();
+  setOtherLocations([...otherLocations, data]);
 };
 
 // converts a condition to a human readable string

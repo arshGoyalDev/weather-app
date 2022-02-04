@@ -7,14 +7,13 @@ import OtherLocations from "./OtherLocations";
 const OtherDetailsMenu = ({
   currentData,
   forecastData,
-  hourlyData,
   otherDetailsMenu,
   setOtherDetailsMenu,
   unit,
   setUnit,
+  addNewLocation,
+  otherLocations
 }) => {
-  console.log(forecastData);
-
   let forecast = [
     {
       id: 1,
@@ -169,7 +168,7 @@ const OtherDetailsMenu = ({
         <Detail title={"Weather Forecast"} data={forecast} forecast={true} />
       </div>
 
-      <OtherLocations />
+      <OtherLocations addNewLocation={addNewLocation} otherLocations={otherLocations} />
     </div>
   );
 };
