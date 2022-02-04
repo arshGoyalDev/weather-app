@@ -107,9 +107,9 @@ const OtherDetailsMenu = ({
       <div className="other-details-menu--forecast">
         <h4>Weather Forecast</h4>
         <div className="forecast-cards-container">
-        {forecastData.map((data) => (
-          <ForecastCard key={data.dt} data={data} />
-        ))}
+          {forecastData.map((data) => (
+            <ForecastCard key={data.dt} data={data} />
+          ))}
         </div>
       </div>
 
@@ -123,6 +123,8 @@ const OtherDetailsMenu = ({
 
 export default OtherDetailsMenu;
 
-  // /* <a href="https://icons8.com/icon/uEV36IijHymM/weather">Weather icon by Icons8</a> */Favicon
+// /* <a href="https://icons8.com/icon/uEV36IijHymM/weather">Weather icon by Icons8</a> */Favicon
 // {/* <a href="https://icons8.com/icon/18481/humidity">Humidity icon by Icons8</a> */} humidity icon
-{/* <a href="https://icons8.com/icon/649/clouds">Clouds icon by Icons8</a> clouds icon */}
+{
+  /* <a href="https://icons8.com/icon/649/clouds">Clouds icon by Icons8</a> clouds icon */
+}

@@ -25,6 +25,7 @@ export const getForecastData = async (lat, lon, unit, setForecastData) => {
   setForecastData(data.daily.slice(1, 8));
 };
 
+// fetch data for other locations
 export const getOtherLocationData = async (
   location,
   otherLocations,

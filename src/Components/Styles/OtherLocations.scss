@@ -10,19 +10,18 @@
     align-items: center;
     flex-direction: column;
     background: lighten($color: $background-2, $amount: 10%);
-    margin-top: 20px;
+    margin-top: 30px;
     border-radius: 10px;
-    
-    
-    .add-location-input{
+
+    .add-location-input {
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       gap: 10px;
       padding: 20px;
-      
-      input{
+
+      input {
         width: 100%;
         font-weight: $fw-bold;
         color: $text-primary;
@@ -31,23 +30,23 @@
         border: 2px solid $text-primary;
         border-radius: 5px;
         outline: none;
-        
-        &::placeholder{
+
+        &::placeholder {
           color: $text-secondary;
           opacity: 1;
         }
 
-        &:focus{
+        &:focus {
           border-color: $text-secondary;
         }
       }
-      
-      .add-new-location-btn{
+
+      .add-new-location-btn {
         font-weight: $fw-bold;
         color: $text-primary;
         padding: 5px 20px;
         background: transparent;
-        border: 2px solid  $text-primary;
+        border: 2px solid $text-primary;
         border-radius: 5px;
         cursor: pointer;
       }
@@ -56,19 +55,19 @@
     .information {
       // width: 70%;
       padding: 20px;
-      
+
       P:first-child {
         font-weight: $fw-bold;
         margin-bottom: 5px;
       }
-      
+
       p:last-child {
         line-height: 1.3;
         font-weight: $fw-medium;
         color: lighten($color: $background-2, $amount: 55%);
       }
     }
-    
+
     .add-illustration {
       position: relative;
       width: 100%;
@@ -81,26 +80,25 @@
       color: lighten($color: $background-2, $amount: 20%);
       cursor: pointer;
     }
-
   }
 
   @include media-lg() {
     padding-inline: 35px;
-    
+
     &--add-new-location {
+      margin-top: 35px;
       flex-direction: row;
       align-items: center;
-  
+
       .add-location-input,
-      .information{
+      .information {
         width: 70%;
       }
-  
-      .add-illustration{
+
+      .add-illustration {
         width: 30%;
         padding: 0 20px 0 0;
-      }      
+      }
     }
   }
-
 }

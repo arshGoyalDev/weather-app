@@ -55,11 +55,14 @@ const OtherLocations = ({ addNewLocation, otherLocations }) => {
       </div>
 
       <div className="other-locations--locations">
-        {otherLocations.length !== 0 ? otherLocations.map((data) => (
-          <div className="other-locations-locations-card" key={data.location.name}>
-
-          </div>
-        )) : ""}
+        {otherLocations.length !== 0
+          ? otherLocations.map((data) => (
+              <div
+                className="other-locations-locations-card"
+                key={data.location.name}
+              ></div>
+            ))
+          : ""}
       </div>
     </div>
   );

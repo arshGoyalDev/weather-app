@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./Components/Styles/App.scss";
 
-import { getCurrentData, getForecastData, getCondition, getOtherLocationData } from "./utils";
+import {
+  getCurrentData,
+  getForecastData,
+  getCondition,
+  getOtherLocationData,
+} from "./utils";
 
 import NavBar from "./Components/NavBar";
 import DetailsBar from "./Components/DetailsBar";
@@ -41,12 +46,7 @@ const App = () => {
 
   // fetch current and  hourly forecast data for current location
   let fetchCurrentData = (position, location) => {
-    getCurrentData(
-      position,
-      location,
-      setCurrentData,
-      setLoading
-    );
+    getCurrentData(position, location, setCurrentData, setLoading);
   };
 
   useEffect(() => {
@@ -62,10 +62,9 @@ const App = () => {
   }, [currentData, unit]);
 
   const addNewLocation = (location) => {
-    getOtherLocationData(location, otherLocations, setOtherLocations)
+    getOtherLocationData(location, otherLocations, setOtherLocations);
     // console.log(location)
-  }
-
+  };
 
   return (
     <main className="App">
