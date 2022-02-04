@@ -21,7 +21,7 @@
   &::-webkit-scrollbar {
     width: 5px;
 
-    &-thumb{
+    &-thumb {
       border-radius: 50px;
       background: lighten($color: $background-2, $amount: 20%);
     }
