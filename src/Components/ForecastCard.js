@@ -20,14 +20,16 @@ const ForecastCard = ({ data }) => {
       </div>
       <div className="forecast-card--body">
         <div className="forecast-details">
-          <p>
+          <div>
             <img src="https://img.icons8.com/metro/26/000000/clouds.png" />{" "}
             <span>{data.clouds}%</span>
-          </p>
-          <p>
+            <p className="tooltip">Clouds %</p>
+          </div>
+          <div>
             <img src="https://img.icons8.com/windows/32/000000/humidity.png" />{" "}
             <span>{data.humidity}%</span>
-          </p>
+            <p className="tooltip">Humidity %</p>
+          </div>
         </div>
         <div className="forecast-temp">
           <span>
