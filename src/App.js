@@ -35,7 +35,6 @@ const App = () => {
     }, 1000);
   }
 
-  // get current location from navigator geolocation
   const getLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(fetchCurrentData);
@@ -44,7 +43,6 @@ const App = () => {
     }
   };
 
-  // fetch current and  hourly forecast data for current location
   let fetchCurrentData = (position, location) => {
     getCurrentData(position, location, setCurrentData, setLoading);
   };
@@ -57,13 +55,13 @@ const App = () => {
         unit,
         setForecastData
       );
+
       setCondition(getCondition(currentData.current.condition.text));
     }
   }, [currentData, unit]);
 
   const addNewLocation = (location) => {
     getOtherLocationData(location, otherLocations, setOtherLocations);
-    // console.log(location)
   };
 
   return (
