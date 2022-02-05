@@ -116,6 +116,7 @@ const OtherDetailsMenu = ({
       <OtherLocations
         addNewLocation={addNewLocation}
         otherLocations={otherLocations}
+        unit={unit}
       />
     </div>
   );

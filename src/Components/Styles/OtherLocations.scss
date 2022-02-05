@@ -53,7 +53,6 @@
     }
 
     .information {
-      // width: 70%;
       padding: 20px;
 
       P:first-child {
@@ -79,6 +78,31 @@
       font-weight: 100;
       color: lighten($color: $background-2, $amount: 20%);
       cursor: pointer;
+    }
+  }
+
+  &--locations {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+
+    &-card {
+      .icon {
+        margin: -10px -5px 0 0;
+      }
+
+      &--body{
+        justify-content: space-between;
+        flex-direction: row !important;
+        margin-top: 20px !important;
+      }
+
+      .temp {
+        font-size: $fs-700;
+        font-weight: $fw-bold;
+        padding-bottom: 3px;
+      }
     }
   }
 
