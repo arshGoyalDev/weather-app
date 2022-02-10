@@ -33,9 +33,3 @@ const Attribution = () => {
 };
 
 export default Attribution;
-
-{
-  /* <a href="https://icons8.com/icon/uEV36IijHymM/weather">Weather icon by Icons8</a> Favicon
-<a href="https://icons8.com/icon/18481/humidity">Humidity icon by Icons8</a>  humidity icon
-<a href="https://icons8.com/icon/649/clouds">Clouds icon by Icons8</a> clouds icon */
-}
