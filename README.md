@@ -20,7 +20,7 @@ A weather app with some cool features.
 
 
 ## Links
-- [Code](github.com/arshWebDev/weather-app)
+- [Code](https://github.com/arshWebDev/weather-app)
 - [LIve Site](https://weather-today-xi.vercel.app)
 
 <br>
