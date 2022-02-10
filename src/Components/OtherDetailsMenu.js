@@ -1,6 +1,6 @@
 import "./Styles/OtherDetailsMenu.scss";
 
-import { ReactComponent as CloseIcon } from "../Assets/Images/icon-cross.svg";
+import CloseIcon from "../Assets/Images/icon-cross.svg";
 
 import Detail from "./Detail";
 import OtherLocations from "./OtherLocations";
@@ -77,7 +77,7 @@ const OtherDetailsMenu = ({
       <div className="other-details-menu--close">
         <span>Close</span>
         <button className="close-btn" onClick={closeOtherDetailsMenu}>
-          <CloseIcon />
+          <img src={CloseIcon} alt="close-icon" />
         </button>
       </div>
       <div className="other-details-menu--header">
