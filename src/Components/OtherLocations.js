@@ -12,7 +12,7 @@ const OtherLocations = ({ addNewLocation, otherLocations, unit }) => {
   };
 
   const addLocation = () => {
-    if (newLocation == "" || newLocation == " ") return;
+    if (newLocation === "" || newLocation === " ") return;
     addNewLocation(newLocation);
     setNewLocation("");
     setAdding(false);

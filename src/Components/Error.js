@@ -1,5 +1,5 @@
 import "./Styles/Error.scss";
-import ErrorSvg from "../Assets/Images/undraw_location_search_re_ttoj.svg";
+import ErrorSvg from "../assets/Images/undraw_location_search_re_ttoj.svg";
 
 const Error = ({ error, setError, errorStatement }) => {
   return (

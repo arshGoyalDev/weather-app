@@ -1,6 +1,6 @@
 import "./Styles/OtherDetailsMenu.scss";
 
-import CloseIcon from "../Assets/Images/icon-cross.svg";
+import CloseIcon from "../assets/Images/icon-cross.svg";
 
 import Detail from "./Detail";
 import OtherLocations from "./OtherLocations";
