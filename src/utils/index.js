@@ -3,7 +3,9 @@ export const getCurrentData = async (
   position,
   location,
   setCurrentData,
-  setLoading
+  setLoading,
+  setError,
+  setErrorStatement
 ) => {
   const response = await fetch(
     location === undefined
@@ -12,7 +14,8 @@ export const getCurrentData = async (
   );
   const data = await response.json();
 
-  setCurrentData(data);
+  data.error !== undefined ? setError(true) : setCurrentData(data);
+  data.error !== undefined && setErrorStatement(data.error.message);
   setLoading(false);
 };
 
@@ -29,13 +32,17 @@ export const getForecastData = async (lat, lon, unit, setForecastData) => {
 export const getOtherLocationData = async (
   location,
   otherLocations,
-  setOtherLocations
+  setOtherLocations,
+  setError,
+  setErrorStatement
 ) => {
   const response = await fetch(
     `https://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_WEATHER_API_KEY}&q=${location}`
   );
   const data = await response.json();
-  setOtherLocations([...otherLocations, data]);
+  data.error !== undefined ? setError(true) : setOtherLocations([...otherLocations, data]);
+  data.error !== undefined && setErrorStatement(data.error.message);
+
 };
 
 // converts a condition to a human readable string

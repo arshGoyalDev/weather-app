@@ -148,9 +148,7 @@
     }
   }
 
-  @include media-md() {
-    padding: 40px 60px;
-
+  @include media-sm() {
     &--time {
       font-size: $fs-300;
     }
@@ -170,6 +168,10 @@
         margin: 0 0 0 10px;
       }
     }
+  }
+
+  @include media-md() {
+    padding: 40px 60px;
   }
 }
 

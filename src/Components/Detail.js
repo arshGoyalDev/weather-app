@@ -1,5 +1,3 @@
-import "./Styles/Detail.scss";
-
 const Detail = ({ title, data }) => {
   return (
     <>

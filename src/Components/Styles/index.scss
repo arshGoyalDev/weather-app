@@ -100,3 +100,35 @@ body {
     opacity: 1;
   }
 }
+
+@keyframes come-out {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes come-in {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 270.436px;
+  }
+}
+
+@keyframes come-after {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

@@ -1,5 +1,3 @@
-import "./Styles/ForecastCard.scss";
-
 const ForecastCard = ({ data }) => {
   let dayName = new Date(data.sunrise * 1000).toLocaleString("en-us", {
     weekday: "long",

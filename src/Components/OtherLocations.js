@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import "./Styles/OtherLocations.scss";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const OtherLocations = ({ addNewLocation, otherLocations, unit }) => {
-  console.log(otherLocations);
-
   const [newLocation, setNewLocation] = useState("");
   const [adding, setAdding] = useState(false);
 

@@ -13,6 +13,7 @@ import DetailsBar from "./Components/DetailsBar";
 import Progress from "./Components/Progress";
 import Weather from "./Components/Weather";
 import OtherDetailsMenu from "./Components/OtherDetailsMenu";
+import Error from "./Components/Error";
 
 const App = () => {
   const [currentData, setCurrentData] = useState({});
@@ -24,6 +25,8 @@ const App = () => {
   const [unit, setUnit] = useState("metric");
   const [otherDetailsMenu, setOtherDetailsMenu] = useState(false);
   const [otherLocations, setOtherLocations] = useState([]);
+  const [error, setError] = useState(false);
+  const [errorStatement, setErrorStatement] = useState("");
 
   if (currentData.location !== undefined) {
     setTimeout(() => {
@@ -44,7 +47,7 @@ const App = () => {
   };
 
   let fetchCurrentData = (position, location) => {
-    getCurrentData(position, location, setCurrentData, setLoading);
+    getCurrentData(position, location, setCurrentData, setLoading, setError, setErrorStatement);
   };
 
   useEffect(() => {
@@ -61,7 +64,7 @@ const App = () => {
   }, [currentData, unit]);
 
   const addNewLocation = (location) => {
-    getOtherLocationData(location, otherLocations, setOtherLocations);
+    getOtherLocationData(location, otherLocations, setOtherLocations, setError, setErrorStatement);
   };
 
   return (
@@ -106,6 +109,8 @@ const App = () => {
       ) : (
         ""
       )}
+
+      <Error error={error} setError={setError} errorStatement={errorStatement} />
     </main>
   );
 };

@@ -14,7 +14,6 @@ const DetailsBar = ({
     useState(false);
   const [location, setLocation] = useState("");
 
-  // get current date and time
   let parts = (
     currentData.location !== undefined
       ? currentData.location.localtime.substring(0, 10)
@@ -23,7 +22,6 @@ const DetailsBar = ({
   let currentDate = new Date();
   let date = new Date(parts[0], parts[1] - 1, parts[2]);
 
-  // handler for clicks on track btn
   let changeLocation = (e) => {
     loading ? setLoading(false) : setLoading(true);
     locationChangeVisibility
@@ -31,22 +29,16 @@ const DetailsBar = ({
       : setLocationChangeVisibility(true);
   };
 
-  // track current location
   let trackLocation = () => {
     getLocation();
     setLocationChangeVisibility(false);
   };
 
-  // update the location when the value changes
-  let changeHandler = (e) => {
-    setLocation(e.target.value);
-  };
-
-  // press enter to fetch current data
   let keyDownHandler = (e) => {
     if (e.keyCode === 13) {
       fetchCurrentData("", location);
       setLocationChangeVisibility(false);
+      setLocation("");
     }
   };
 
@@ -110,7 +102,9 @@ const DetailsBar = ({
             className="location-input"
             value={location}
             placeholder="Enter location"
-            onChange={changeHandler}
+            onChange={(e) => {
+              setLocation(e.target.value);
+            }}
             onKeyDown={keyDownHandler}
           />
         </div>
