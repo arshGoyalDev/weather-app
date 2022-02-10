@@ -1,9 +1,11 @@
-import React from "react";
 import "./Styles/OtherDetailsMenu.scss";
+
 import { ReactComponent as CloseIcon } from "../Assets/Images/icon-cross.svg";
+
 import Detail from "./Detail";
 import OtherLocations from "./OtherLocations";
 import ForecastCard from "./ForecastCard";
+import Attribution from "./Attribution";
 
 const OtherDetailsMenu = ({
   currentData,
@@ -118,12 +120,10 @@ const OtherDetailsMenu = ({
         otherLocations={otherLocations}
         unit={unit}
       />
+
+      <Attribution />
     </div>
   );
 };
 
 export default OtherDetailsMenu;
-
-// <a href="https://icons8.com/icon/uEV36IijHymM/weather">Weather icon by Icons8</a> Favicon
-// <a href="https://icons8.com/icon/18481/humidity">Humidity icon by Icons8</a>  humidity icon
-// <a href="https://icons8.com/icon/649/clouds">Clouds icon by Icons8</a> clouds icon

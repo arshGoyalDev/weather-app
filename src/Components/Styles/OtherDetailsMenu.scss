@@ -14,11 +14,6 @@
   overflow-y: auto;
   scrollbar-width: none;
 
-  @supports (backdrop-filter: blur(1px)) {
-    backdrop-filter: blur(80px);
-    background: rgba($color: $background-2, $alpha: 0.5);
-  }
-
   @supports (scrollbar-width: thin) {
     scrollbar-width: thin;
     scrollbar-color: lighten($color: $background-2, $amount: 10%) transparent;
@@ -138,6 +133,11 @@
     transform: translateX(0);
     animation: come-out 1.25s;
     border-radius: 35px 0 0 35px;
+
+    @supports (backdrop-filter: blur(1px)) {
+      backdrop-filter: blur(80px);
+      background: rgba($color: $background-2, $alpha: 0.5);
+    }
 
     &--close {
       display: none;
@@ -354,6 +354,7 @@
 
 .other-locations {
   padding: 40px 25px;
+  border-bottom: 2px solid lighten($color: $background-2, $amount: 5%);
 
   &--add-new-location {
     position: relative;
@@ -474,6 +475,49 @@
         width: 30%;
         padding: 0 20px 0 0;
       }
+    }
+  }
+}
+
+.attribution {
+  padding: 40px 25px;
+
+  &--links {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 30px;
+
+    &--link {
+      p {
+        font-size: $fs-300;
+        font-weight: $fw-bold;
+        color: lighten($color: $text-tertiary, $amount: 10%);
+        margin-bottom: 15px;
+      }
+
+      div {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  }
+
+  &--made-by {
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  a {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: $fw-medium;
+    color: lighten($color: $text-secondary, $amount: 30%);
+    transition: 0.3s;
+
+    &:hover {
+      color: $text-secondary;
     }
   }
 }
