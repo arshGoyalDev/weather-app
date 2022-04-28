@@ -1,6 +1,8 @@
 # Weather Today
 A weather app with some cool features.
 
+<br>
+
 <img src="src/assets/Weather-Today.gif" alt="weather today demo" width="100%">
 
 <br>
