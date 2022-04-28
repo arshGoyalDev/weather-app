@@ -17,7 +17,7 @@ const OtherDetailsMenu = ({
   addNewLocation,
   otherLocations,
 }) => {
-  let weatherDetails = [
+  const weatherDetails = [
     {
       id: 1,
       name: "Cloud Cover",
@@ -60,15 +60,15 @@ const OtherDetailsMenu = ({
     },
   ];
 
-  let closeOtherDetailsMenu = () => {
+  const closeOtherDetailsMenu = () => {
     setOtherDetailsMenu(false);
   };
 
-  let changeUnitToImperial = () => {
+  const changeUnitToImperial = () => {
     setUnit("imperial");
   };
 
-  let changeUnitToMetric = () => {
+  const changeUnitToMetric = () => {
     setUnit("metric");
   };
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Styles/DetailsBar.scss";
 
 const DetailsBar = ({
@@ -14,27 +14,27 @@ const DetailsBar = ({
     useState(false);
   const [location, setLocation] = useState("");
 
-  let parts = (
+  const parts = (
     currentData.location !== undefined
       ? currentData.location.localtime.substring(0, 10)
       : ""
   ).split("-");
-  let currentDate = new Date();
-  let date = new Date(parts[0], parts[1] - 1, parts[2]);
+  const currentDate = new Date();
+  const date = new Date(parts[0], parts[1] - 1, parts[2]);
 
-  let changeLocation = (e) => {
+  const changeLocation = (e) => {
     loading ? setLoading(false) : setLoading(true);
     locationChangeVisibility
       ? setLocationChangeVisibility(false)
       : setLocationChangeVisibility(true);
   };
 
-  let trackLocation = () => {
+  const trackLocation = () => {
     getLocation();
     setLocationChangeVisibility(false);
   };
 
-  let keyDownHandler = (e) => {
+  const keyDownHandler = (e) => {
     if (e.keyCode === 13) {
       fetchCurrentData("", location);
       setLocationChangeVisibility(false);

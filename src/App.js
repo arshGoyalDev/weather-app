@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./Components/Styles/App.scss";
 
 import {
@@ -31,7 +31,6 @@ const App = () => {
   if (currentData.location !== undefined) {
     setTimeout(() => {
       setHide(true);
-
       setTimeout(() => {
         setVisible(true);
       }, 1000);
@@ -46,8 +45,15 @@ const App = () => {
     }
   };
 
-  let fetchCurrentData = (position, location) => {
-    getCurrentData(position, location, setCurrentData, setLoading, setError, setErrorStatement);
+  const fetchCurrentData = (position, location) => {
+    getCurrentData(
+      position,
+      location,
+      setCurrentData,
+      setLoading,
+      setError,
+      setErrorStatement
+    );
   };
 
   useEffect(() => {
@@ -64,13 +70,19 @@ const App = () => {
   }, [currentData, unit]);
 
   const addNewLocation = (location) => {
-    getOtherLocationData(location, otherLocations, setOtherLocations, setError, setErrorStatement);
+    getOtherLocationData(
+      location,
+      otherLocations,
+      setOtherLocations,
+      setError,
+      setErrorStatement
+    );
   };
 
   return (
     <main className="App">
-      <div className={`background-wrapper ${visible ? condition : ""}`}></div>
-      <section className={`main ${hide ? "active" : ""}`}>
+      <div className={`background-wrapper ${visible && condition}`}></div>
+      <section className={`main ${hide && "active"}`}>
         <NavBar
           hide={hide}
           otherDetailsMenu={otherDetailsMenu}
@@ -95,7 +107,7 @@ const App = () => {
           visible={visible}
         />
       </section>
-      {hide ? (
+      {hide && (
         <OtherDetailsMenu
           currentData={currentData}
           forecastData={forecastData}
@@ -106,11 +118,13 @@ const App = () => {
           addNewLocation={addNewLocation}
           otherLocations={otherLocations}
         />
-      ) : (
-        ""
       )}
 
-      <Error error={error} setError={setError} errorStatement={errorStatement} />
+      <Error
+        error={error}
+        setError={setError}
+        errorStatement={errorStatement}
+      />
     </main>
   );
 };

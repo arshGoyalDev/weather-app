@@ -1,13 +1,6 @@
 import "./Styles/NavBar.scss";
 
 const NavBar = ({ hide, otherDetailsMenu, setOtherDetailsMenu }) => {
-  // navigation bar click handler
-  let clickHandler = () => {
-    if (hide) {
-      otherDetailsMenu ? setOtherDetailsMenu(false) : setOtherDetailsMenu(true);
-    }
-  };
-
   return (
     <nav>
       <h2 className={`app-name ${hide ? "animate-left" : ""}`}>
@@ -15,7 +8,7 @@ const NavBar = ({ hide, otherDetailsMenu, setOtherDetailsMenu }) => {
       </h2>
       <button
         className={`menu-btn ${hide ? "animate-right" : ""}`}
-        onClick={clickHandler}
+        onClick={() => setOtherDetailsMenu(!otherDetailsMenu)}
       >
         <span></span>
         <span></span>

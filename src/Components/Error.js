@@ -2,8 +2,6 @@ import "./Styles/Error.scss";
 import ErrorSvg from "../assets/Images/undraw_location_search_re_ttoj.svg";
 
 const Error = ({ error, setError, errorStatement }) => {
-  console.log(error);
-
   return (
     <>
       <div

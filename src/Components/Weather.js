@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Styles/Weather.scss";
 
 const Weather = ({ visible, currentData, unit }) => {
-  let [quotesVisible, setQuotesVisible] = useState(false);
+  const [quotesVisible, setQuotesVisible] = useState(false);
 
-  // quotesVisible = true after 0.5s when visible == true
   if (visible) {
     setTimeout(() => {
       setQuotesVisible(true);
@@ -12,9 +11,9 @@ const Weather = ({ visible, currentData, unit }) => {
   }
 
   return (
-    <div className={`weather ${visible ? "appear" : ""}`}>
-      <div className={`weather--digit ${visible ? "appear" : ""}`}>
-        {unit === "metric" ? currentData.temp_c : currentData.temp_f}{" "}
+    <div className={`weather ${visible && "appear"}`}>
+      <div className={`weather--digit ${visible && "appear"}`}>
+        {unit === "metric" ? currentData.temp_c : currentData.temp_f}
         <sup>°</sup>
       </div>
 
