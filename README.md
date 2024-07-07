@@ -19,6 +19,4 @@ A weather app with some cool features.
 - [Scss](https://sass-lang.com) - CSS Preprocessor
 - [Vercel](https://vercel.com) - for deployment
 
-<br>
-
 Made with ❤️ by [Arsh](github.com/arshGoyalDev)
