@@ -19,11 +19,6 @@ A weather app with some cool features.
 - [Scss](https://sass-lang.com) - CSS Preprocessor
 - [Vercel](https://vercel.com) - for deployment
 
-
-## Links
-- [Code](https://github.com/arshWebDev/weather-app)
-- [LIve Site](https://weather-today-xi.vercel.app)
-
 <br>
 
-Made with ❤️ by [Arsh](github.com/arshWebDev)
+Made with ❤️ by [Arsh](github.com/arshGoyalDev)
