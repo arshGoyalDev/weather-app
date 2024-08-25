@@ -38,7 +38,7 @@
     align-items: center;
     padding: 15px 20px;
     font-weight: $fw-bold;
-    border-bottom: 2px solid lighten($color: $background-2, $amount: 5%);
+    border-bottom: 2px solid lighten($color: $background-2, $amount: 15%);
 
     .close-btn {
       display: grid;
@@ -56,7 +56,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 25px;
-    border-bottom: 2px solid lighten($color: $background-2, $amount: 5%);
+    border-bottom: 2px solid lighten($color: $background-2, $amount: 15%);
 
     &--city-name {
       display: flex;
@@ -107,7 +107,7 @@
   &--weather-details,
   &--forecast {
     padding: 40px 25px;
-    border-bottom: 2px solid lighten($color: $background-2, $amount: 5%);
+    border-bottom: 2px solid lighten($color: $background-2, $amount: 15%);
   }
 
   &--forecast {
@@ -160,11 +160,11 @@
   }
 
   @include media-lg-2() {
-    width: 25%;
+    width: 30%;
   }
 
   @include media-xl() {
-    width: 22%;
+    width: 25%;
   }
 }
 
@@ -211,8 +211,8 @@
 
 .forecast-card,
 .other-locations--locations-card {
-  padding: 20px;
-  border: 2px solid lighten($color: $background-2, $amount: 5%);
+  padding: 30px;
+  background: rgba($color: #000, $alpha: 0.15);
   border-radius: 10px;
 
   &--header {
@@ -345,7 +345,7 @@
 
 .forecast-card .icon {
   img {
-    width: 100px;
+    width: 80px;
     height: 60px;
     object-fit: cover;
     margin: -5px -23px 0 0;
@@ -354,14 +354,14 @@
 
 .other-locations {
   padding: 40px 25px;
-  border-bottom: 2px solid lighten($color: $background-2, $amount: 5%);
+  border-bottom: 2px solid lighten($color: $background-2, $amount: 15%);
 
   &--add-new-location {
     position: relative;
     display: flex;
     align-items: center;
     flex-direction: column;
-    background: lighten($color: $background-2, $amount: 10%);
+    background: rgba($color: #000, $alpha: 0.15);
     margin-top: 30px;
     border-radius: 10px;
 
@@ -371,7 +371,7 @@
       flex-direction: column;
       align-items: flex-start;
       gap: 10px;
-      padding: 20px;
+      padding: 30px;
 
       input {
         width: 100%;
@@ -405,7 +405,7 @@
     }
 
     .information {
-      padding: 20px;
+      padding: 30px;
 
       P:first-child {
         font-weight: $fw-bold;
