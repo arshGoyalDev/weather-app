@@ -7,30 +7,16 @@ const OtherLocationCard = ({data, unit}) => {
           <p>{data.location.name}</p>
           <span>{data.current.condition.text}</span>
         </div>
-        <div className="icon">
-          <img
-            src={`https:${data.current.condition.icon}`}
-            alt={data.current.condition.text}
-          />
-        </div>
       </div>
       <div className="other-locations--locations-card--body">
         <div className="weather-details">
           <div>
-            <img
-              src="https://img.icons8.com/metro/26/000000/clouds.png"
-              alt="clouds-icon-by-icons8"
-            />{" "}
+            <p>Clouds</p>
             <span>{data.current.cloud}%</span>
-            <p className="tooltip">Clouds %</p>
           </div>
           <div>
-            <img
-              src="https://img.icons8.com/windows/32/000000/humidity.png"
-              alt="humidity-icon-by-icons8"
-            />{" "}
+            <p>Humidity</p>
             <span>{data.current.humidity}%</span>
-            <p className="tooltip">Humidity %</p>
           </div>
         </div>
         <div className="temp">
