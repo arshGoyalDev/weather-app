@@ -3,7 +3,7 @@ A weather app with some cool features.
 
 <br>
 
-<img src="src/assets/Weather-Today.gif" alt="weather today demo" width="100%">
+<img src="src/assets/screenshot.png" alt="Weather Today" width="100%">
 
 <br>
 
@@ -15,8 +15,8 @@ A weather app with some cool features.
 
 ## Made with
 
-- [React.js](https://reactjs.org) - JS Library
 - [Scss](https://sass-lang.com) - CSS Preprocessor
+- [React.js](https://reactjs.org) - JS Library
 - [Vercel](https://vercel.com) - for deployment
 
 Made with ❤️ by [Arsh](https://github.com/arshGoyalDev)
