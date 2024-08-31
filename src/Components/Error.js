@@ -1,5 +1,6 @@
 import "./Styles/Error.scss";
-import ErrorSvg from "../assets/Images/undraw_location_search_re_ttoj.svg";
+
+import ErrorPic from '../assets/Images/error.png';
 
 const Error = ({ error, setError, errorStatement }) => {
   return (
@@ -12,7 +13,7 @@ const Error = ({ error, setError, errorStatement }) => {
       ></div>
       <div className={`error ${!error ? "hidden" : ""}`}>
         <div className="error-svg">
-          <img src={ErrorSvg} alt="error illustration from undraw.co" />
+          <img src={ErrorPic} alt="error illustration from undraw.co" />
         </div>
         <h1>Error</h1>
         <p>{errorStatement}</p>
