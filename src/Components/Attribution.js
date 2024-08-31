@@ -13,6 +13,15 @@ const Attribution = () => {
         </div>
 
         <div className="attribution--links--link">
+          <p>Illustration from Icons 8</p>
+          by{" "}
+          <a href="https://icons8.com/illustrations/author/259416">
+            Marina Green
+          </a>{" "}
+          from <a href="https://icons8.com/illustrations">Ouch!</a>
+        </div>
+
+        <div className="attribution--links--link">
           <p>Forecast</p>
           <a href="https://openweathermap.org">OpenWeatherMap</a>
         </div>
@@ -26,7 +35,7 @@ const Attribution = () => {
       </div>
 
       <div className="attribution--made-by">
-        Made with ❤️ by <a href="https://github.com/arshWebDev">Arsh</a>
+        Made with ❤️ by <a href="https://github.com/arshGoyalDev">Arsh</a>
       </div>
     </div>
   );
