@@ -153,10 +153,14 @@
   }
 
   @include media-lg-2() {
-    width: 30%;
+    width: 32%;
   }
 
   @include media-xl() {
+    width: 29%;
+  }
+
+  @include media-2xl {
     width: 25%;
   }
 }

@@ -27,3 +27,9 @@
     @content;
   }
 }
+
+@mixin media-2xl {
+  @media (min-width: 100rem) {
+    @content;
+  }
+}
