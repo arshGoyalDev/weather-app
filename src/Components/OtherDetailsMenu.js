@@ -6,7 +6,6 @@ import Detail from "./Detail";
 import OtherLocations from "./OtherLocations";
 import ForecastCard from "./ForecastCard";
 import Attribution from "./Attribution";
-import { useEffect } from "react";
 
 const OtherDetailsMenu = ({
   currentData,
