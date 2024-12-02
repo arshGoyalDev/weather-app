@@ -9,8 +9,8 @@ export const getCurrentData = async (
 ) => {
   const response = await fetch(
     location === undefined
-      ? `https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_API_KEY}&q=${position.coords.latitude},${position.coords.longitude}`
-      : `https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_API_KEY}&q=${location}`
+      ? `https://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_WEATHER_API_KEY}&q=${position.coords.latitude},${position.coords.longitude}`
+      : `https://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_WEATHER_API_KEY}&q=${location}`
   );
   const data = await response.json();
 
@@ -22,10 +22,11 @@ export const getCurrentData = async (
 // get forecast data for the given lat lon
 export const getForecastData = async (lat, lon, unit, setForecastData) => {
   const response = await fetch(
-    `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&units=${unit}&APPID=${process.env.REACT_APP_OPEN_WEATHER_API_KEY}`
+    `https://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lon}&key=${process.env.REACT_APP_WEATHER_BIT_API_KEY}&units=${unit === "metric" ? "M" : "I"}&days=8`
   );
   const data = await response.json();
-  setForecastData(data.daily.slice(1, 8));
+  
+  setForecastData(data.data.slice(1, 8));
 };
 
 // fetch data for other locations
@@ -40,9 +41,10 @@ export const getOtherLocationData = async (
     `https://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_WEATHER_API_KEY}&q=${location}`
   );
   const data = await response.json();
-  data.error !== undefined ? setError(true) : setOtherLocations([...otherLocations, data]);
+  data.error !== undefined
+    ? setError(true)
+    : setOtherLocations([...otherLocations, data]);
   data.error !== undefined && setErrorStatement(data.error.message);
-
 };
 
 // converts a condition to a human readable string

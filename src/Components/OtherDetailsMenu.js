@@ -6,6 +6,7 @@ import Detail from "./Detail";
 import OtherLocations from "./OtherLocations";
 import ForecastCard from "./ForecastCard";
 import Attribution from "./Attribution";
+import { useEffect } from "react";
 
 const OtherDetailsMenu = ({
   currentData,
@@ -72,6 +73,10 @@ const OtherDetailsMenu = ({
     setUnit("metric");
   };
 
+  useEffect(() => {
+    console.log(forecastData);
+  }, [forecastData])
+
   return (
     <div className={`other-details-menu ${otherDetailsMenu ? "active" : ""}`}>
       <div className="other-details-menu--close">
@@ -108,11 +113,11 @@ const OtherDetailsMenu = ({
 
       <div className="other-details-menu--forecast">
         <h4>Weather Forecast</h4>
-        <div className="forecast-cards-container">
+        {/* <div className="forecast-cards-container">
           {forecastData.map((data) => (
             <ForecastCard key={data.dt} data={data} />
           ))}
-        </div>
+        </div> */}
       </div>
 
       <OtherLocations
