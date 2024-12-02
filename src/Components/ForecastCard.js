@@ -1,5 +1,5 @@
 const ForecastCard = ({ data }) => {
-  const dayName = new Date(data.sunrise * 1000).toLocaleString("en-us", {
+  const dayName = new Date(data.sunrise_ts*1000).toLocaleString("en-us", {
     weekday: "long",
   });
 
@@ -8,7 +8,7 @@ const ForecastCard = ({ data }) => {
       <div className="forecast-card--header">
         <div className="day-condition">
           <p>{dayName}</p>
-          <span>{data.weather[0].main}</span>
+          <span>{data.weather.description}</span>
         </div>
       </div>
       <div className="forecast-card--body">
@@ -19,16 +19,16 @@ const ForecastCard = ({ data }) => {
           </div>
           <div>
             <p>Humidity</p>
-            <span>{data.humidity}%</span>
+            <span>{data.rh}%</span>
           </div>
         </div>
         <div className="forecast-temp">
           <span>
-            {data.temp.min} <sup>°</sup>
+            {data.min_temp} <sup>°</sup>
           </span>{" "}
           <span>/</span>{" "}
           <span>
-            {data.temp.max} <sup>°</sup>
+            {data.max_temp} <sup>°</sup>
           </span>
         </div>
       </div>
